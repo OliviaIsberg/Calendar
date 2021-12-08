@@ -2,36 +2,55 @@ body{
     margin:0;
     padding:0;
     background-color: whitesmoke;
-   
+    max-height: 100vh;
 }
 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aqua;
+    height: 10vh;
+}
 
 .sidebar{
-
-background-color: yellow;
-height: 100vh;
-width: 25%;
-
+    background-color: yellow;
+    width: 25%;
 }
 
 .calendar{
-
-background-color: yellowgreen;
-width:75%
+    background-color: yellowgreen;
+    width:75%
 }
 
 .container-sidebar-calendar{
     display: flex;
     flex-direction: row;
+    height: 90vh;
 }
 
 .displayMonth{
-background-color: palevioletred;
+    background-color: palevioletred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
 
 }
-
+.displayMonth  h2 {
+    padding: 2em;
+    text-transform: uppercase;
+}
 .daysOfTheWeek{
     display: flex;
     flex-direction: row;
-   
+    justify-content: space-between;
+    margin: 0 1em;
+    text-transform: uppercase;
+}
+.fas {
+    color: black;
+    cursor: pointer;
+    font-size: 1.5em;
 }

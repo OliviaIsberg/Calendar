@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
     <link rel="stylesheet" href="./style.css">
     <script src="./todo.js"></script>
     <script src="./calender.js"></script>
@@ -12,40 +13,69 @@
 </head>
 
 <body>
-    <header><h1>kalender för hushållet</h1></header>
+    <header class="header">
+        <h1>kalender för hushållet</h1>
+    </header>
 
 
-<div class ="container-sidebar-calendar">
-<aside class="sidebar">
-    
- <div id="">
-    <h2 id="displayDay"></h2>
- </div>
+    <div class="container-sidebar-calendar">
+        <aside class="sidebar">
 
-</aside>
-<main class="calendar">
-    <div class="calanderContainer">
-       <div class="displayMonth"><h2 id="displayMonth">januari</h2></div>
-        
-        <div class="daysOfTheWeek">
-            <div><h4>söndag</h4></div>
-            <div><h4>måndag</h4></div>
-            <div><h4>tisdag</h4></div>
-            <div><h4>onsdag</h4></div>
-            <div><h4>torsdag</h4></div>
-            <div><h4>fredag</h4></div>
-            <div><h4>söndag</h4></div>
-        </div>
-        
-            <div class="daysOfTheMonth">
+            <div id="">
+                <h2 id="displayDay"></h2>
+                <h3 class="displayDate"></h3>
+                <p class="displayTime"></p>
+            </div>
+            <div class="todoList">
+                <div class="addTodo">
+                    <i class="far fa-plus-square"></i>
+                </div>
+            </div>
+
+        </aside>
+        <main class="calendar">
+
+            <div class="calanderContainer">
+                <div class="displayMonth">
+                    <i class="fas fa-angle-left prev"></i>
+                    <h2 id="displayMonth">januari</h2>
+                    <i class="fas fa-angle-right next"></i>
+
+                </div>
+
+                <div class="daysOfTheWeek">
+                    <div>
+                        <h4>söndag</h4>
+                    </div>
+                    <div>
+                        <h4>måndag</h4>
+                    </div>
+                    <div>
+                        <h4>tisdag</h4>
+                    </div>
+                    <div>
+                        <h4>onsdag</h4>
+                    </div>
+                    <div>
+                        <h4>torsdag</h4>
+                    </div>
+                    <div>
+                        <h4>fredag</h4>
+                    </div>
+                    <div>
+                        <h4>lördag</h4>
+                    </div>
+                </div>
+
+                <div class="daysOfTheMonth">
+
+                </div>
+
 
             </div>
-        
 
+        </main>
     </div>
-
-</main>
-</div>
 
 </body>
 

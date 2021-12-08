@@ -54,3 +54,14 @@ header {
     cursor: pointer;
     font-size: 1.5em;
 }
+
+
+.daysOfTheMonth{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 100%;
+}
+.days{
+    background: white;
+   
+}

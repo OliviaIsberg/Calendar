@@ -49,7 +49,7 @@ const renderCalenders = () => {
     const nextDays = 7 - lastDayIndex - 1;
         console.log(nextDays);
 
-        const months = [
+    const months = [
             "January",
             "February",
             "March",
@@ -64,11 +64,24 @@ const renderCalenders = () => {
             "December",
           ];
 
-        document.querySelector('.displayMonth h2').innerHTML = months[date.getMonth()];
-
+    document.querySelector('.displayMonth h2').innerHTML = months[date.getMonth()];
+        
+    let days = '';
         for (let i = 0; i < lastDay; i++) {
-
+            const daysOfTheMonth = document.querySelector('.daysOfTheMonth');
+            days = document.createElement('div');
+            days.className = "days";
+            daysOfTheMonth.appendChild(days);
+            days.innerHTML = day;
         }
 
+    document.querySelector('.prev').addEventListener('click', () => {
+            date.setMonth(date.getMonth() - 1);
+            renderCalenders();
+        })
+    document.querySelector('.next').addEventListener('click', () => {
+            date.setMonth(date.getMonth() + 1);
+            renderCalenders();
+        })
 
 }

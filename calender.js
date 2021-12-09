@@ -59,6 +59,7 @@ const renderCalenders = () => {
             'Saturday',
         ];
 
+    let todayDate = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
     document.querySelector('.date h2').innerHTML = months[date.getMonth()];
     document.querySelector('.date p').innerHTML =  todayDate;
 

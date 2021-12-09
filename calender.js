@@ -60,6 +60,9 @@ const renderCalenders = () => {
             'Saturday',
         ];
 
+
+    let today = new Date();
+    let todayDate = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
     document.querySelector('.date h2').innerHTML = months[date.getMonth()];
     document.querySelector('.date p').innerHTML =  todayDate;
 
@@ -112,11 +115,3 @@ let elements = document.getElementsByClassName("weekDays")[0].getElementsByTagNa
 console.log(elements)
 }
 
-
-
-
-// todo
-
-
-
-let today = new Date();

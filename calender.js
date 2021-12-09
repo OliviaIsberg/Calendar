@@ -6,6 +6,7 @@ const date = new Date();
 function main() {
     renderCalenders()
     addEventsListeners()
+    AlldaysOfTheWeek()
 }
 
 const renderCalenders = () => {
@@ -105,6 +106,11 @@ function addEventsListeners() {
     }
 }
 
+
+function AlldaysOfTheWeek(){
+let elements = document.getElementsByClassName("weekDays")[0].getElementsByTagName("div")
+console.log(elements)
+}
 
 
 

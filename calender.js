@@ -2,14 +2,6 @@ window.addEventListener('load', main);
 
 const date = new Date();
 
-// const year = date.getFullYear();
-// console.log(year);
-
-// const month = date.getMonth() + 1;
-// console.log(month);
-
-// const day = date.getDate();
-// console.log(day);
 
 function main() {
     renderCalenders()
@@ -66,15 +58,9 @@ const renderCalenders = () => {
             'Friday',
             'Saturday',
         ];
-         
-    // document.querySelector('.displayDay').innerHTML = weekDays[date.getDay()];
-    // let todayDate = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
-    // document.querySelector('.displayDate').innerHTML = `${todayDate}`;
-    // let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    // document.querySelector('.displayTime').innerHTML = `${time}`;
 
-    // document.querySelector('.date h2').innerHTML = months[date.getMonth()];
-    // document.querySelector('.date p').innerHTML =  todayDate;
+    document.querySelector('.date h2').innerHTML = months[date.getMonth()];
+    document.querySelector('.date p').innerHTML =  todayDate;
 
    
         

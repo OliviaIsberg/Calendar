@@ -1,6 +1,6 @@
-window.addEventListener('load', main);
+window.addEventListener('load', clock);
 
-function main() {
+function clock() {
     startClock();
 }
 

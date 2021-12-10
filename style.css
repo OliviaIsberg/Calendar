@@ -47,12 +47,12 @@ header {
     font-size: 5em;
     cursor: pointer;
 }
-.add-box {
+.todo-box {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.add-box .small {
+.todo-box .small {
     font-size: 3em;
     padding-left: .5em;
     cursor: pointer;
@@ -155,4 +155,12 @@ header {
   }
    .active {
       visibility: visible;
+  }
+
+
+  .todo-box {
+      display: none;
+  }
+  .todo-box.hide {
+      display: block;
   }

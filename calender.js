@@ -112,6 +112,15 @@ function addEventsListeners() {
 
 function AlldaysOfTheWeek(){
 let elements = document.getElementsByClassName("weekDays")[0].getElementsByTagName("div")
-console.log(elements)
+
+
+const dayToday = new Date();
+let colorDays = elements[dayToday.getDay()];
+
+
+
+colorDays.style.color = "pink"
+
+
 }
 

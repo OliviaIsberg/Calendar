@@ -153,6 +153,6 @@ header {
       background: #262626;
       visibility: hidden;
   }
-   .active {
+   .active.todo-list {
       visibility: visible;
   }

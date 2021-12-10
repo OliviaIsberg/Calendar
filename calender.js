@@ -102,7 +102,7 @@ function addEventsListeners() {
     for (const dayBox of dayBoxes) {
         dayBox.addEventListener('click', () => {
             console.log("yes");
-            let todoList = document.getElementById('todo');
+            let todoList = document.querySelector('.todo-list');
             todoList.classList.toggle('active');
         })
         

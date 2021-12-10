@@ -130,37 +130,35 @@ header {
     text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
     transition: background-color 0.2s;
     cursor: pointer;
-  }
+}
   
-  .days div:hover:not(.today) {
+.days div:hover:not(.today) {
     background-color: #262626;
     /* border: 0.2rem solid #777; */
-  }
+}
   
-  .prev-date,
-  .next-date {
-    opacity: 0.5;
-  }
+.prev-date,
+.next-date {
+     opacity: 0.5;
+}
   
-  .today {
+.today {
     background-color: #167e56;
-  }
+}
 
- 
-  .todo-list {
+.todo-list {
       height: 200px;
       margin: 2em;
       background: #262626;
       visibility: hidden;
-  }
-   .active.todo-list {
+}
+.active.todo-list {
       visibility: visible;
-  }
+}
 
-
-  .todo-box {
-      display: none;
-  }
-  .todo-box.hide {
-      display: block;
-  }
+.todo-box {
+    visibility: hidden;
+ }
+.todo-box.hide {
+    visibility: visible;
+}

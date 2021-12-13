@@ -1,29 +1,42 @@
 body{
     margin:0;
     padding:0;
-    background-color: whitesmoke;
-    max-height: 100vh;
-    box-sizing: border-box;
-}
-html {
-    font-size: 52.5%;
+   background-image:url("./moving.gif");
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 100vh;
+
 }
 
-header {
+*{
+    font-family: Optima;
+
+}
+
+
+.header {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: aqua;
+    color: rgb(248, 247, 247);
 }
-.container-sidebar-calendar{
+
+.container-row{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+   
 }
+
+
+
 .sidebar{
-    background-color: rgb(190, 190, 102);
-    width: 25%;
+    background-color:rgba(3, 1, 1, 0.384) ;
     display: flex;
-    flex-direction: column;
+    color: rgb(255, 255, 255);
+    
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -34,11 +47,11 @@ header {
 }
 .displayDay {
     text-transform: uppercase;
-    font-family: 'Courier New', Courier, monospace;
+    
 }
 .displayDate, .displayTime{
     font-size: 1.5em;
-    font-family: 'Courier New', Courier, monospace;
+    
 }
 .todo{
     margin-top: 1em;
@@ -57,23 +70,14 @@ header {
     padding-left: .5em;
     cursor: pointer;
 } 
-.container{
-    background-color: yellowgreen;
-    width:75%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
    
-}
-.calendar{
-    height: 100%;
-    width: 100%;
-    background-color: #2f2f50;
-    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
-  }
+
 .month{
-    background-color: rgb(73, 132, 139);
-    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.336);
+    border-bottom: dotted;
+    border-color: rgba(36, 36, 36, 0.733);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,7 +86,7 @@ header {
     text-align: center;
 }
 .fas {
-    color: black;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     font-size: 2.5em;
 }
@@ -95,30 +99,32 @@ header {
     font-size: 1.5em;
 }
 .weekDays{
+    background-color: black;
     padding: 0 .4em;
+    color: rgb(255, 255, 255);
     text-transform: uppercase;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 1px;
-    width: 100%;
+    border-bottom: #6b6b6b27;
+    border-bottom-style: dotted;
+    
 }
 .weekDays div {
     font-size: 1.2em;
     letter-spacing: .1em;
     text-align: center;
     padding: 1em;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2em 0; */
+   
 }
 
 .days{
-    display: flex;
-    flex-wrap: wrap;
+    
+    background-color: rgba(3, 1, 1, 0.384);
     padding: .2em;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    color: rgb(255, 255, 255);
 }
 .days div {
     font-size: 1.4rem;
@@ -127,13 +133,11 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-    transition: background-color 0.2s;
     cursor: pointer;
 }
   
 .days div:hover:not(.today) {
-    background-color: #262626;
+    background-color: #adb3ae50;
     /* border: 0.2rem solid #777; */
 }
   
@@ -143,14 +147,16 @@ header {
 }
   
 .today {
-    background-color: #167e56;
+    background-color: #8f8f8fb7;
 }
 
 .todo-list {
-      height: 200px;
-      margin: 2em;
-      background: #262626;
+      max-height: 310px;
       visibility: hidden;
+      overflow: scroll;
+      border: solid;
+      border-color: rgba(0, 0, 0, 0.808);
+      background-color: rgba(59, 58, 58, 0.274);
 }
 .active.todo-list {
       visibility: visible;
@@ -161,4 +167,25 @@ header {
  }
 .todo-box.hide {
     visibility: visible;
+}
+
+#text{
+    border:none;
+    background-color: rgba(255, 255, 255, 0.336);
+    color: black;
+    padding:10px;
+    margin:5px;
+    border-radius: 15px;
+}
+
+.deleteTodo{
+background-color: rgb(165, 2, 2);
+color:white;
+text-align: center;
+border-radius: 200px;
+padding: 4px;
+font-weight: bold;
+margin:20px;
+border: none;
+
 }

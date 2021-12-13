@@ -66,12 +66,23 @@ body{
     align-items: center;
 }
 .todo-box .small {
-    font-size: 3em;
-    padding-left: .5em;
+    font-size: 2em;
     cursor: pointer;
 } 
 
-   
+.todo-box .submitbutton {
+    margin-left: 1rem;
+    padding: 0;
+    border: none;
+    background: none;
+}
+.container{
+    background-color: yellowgreen;
+    width:75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
 
 .month{
     color: rgb(255, 255, 255);

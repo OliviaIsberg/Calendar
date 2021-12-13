@@ -14,13 +14,16 @@
 </head>
 
 <body>
-    <header class="header">
+    <header>
+        <div class="header">
         <h1>kalender för hushållet</h1>
+    </div>
     </header>
 
-
-    <div class="container-sidebar-calendar">
+<div class="container-row">
+    <!-- <div class="container-sidebar-calendar"> -->
         <aside class="sidebar">
+            <div class="sidebar-todo">
 
             <div class='date-div'>
                 <h2 class="displayDay">TODAY</h2>
@@ -39,12 +42,13 @@
                     </form>
                 </div>
                 <div class="todo-list">
+                    <ul id=todoULDOM></ul>
 
                 </div>
             </div>
-
+</div>
         </aside>
-        <main class="container">
+         <main> 
             <div class="calendar">
                 <div class="month">
                     <i class="fas fa-angle-left prev"></i>
@@ -82,9 +86,10 @@
                 </div>
             </div>
         </main>
+    <!-- </div> -->
     </div>
 
-</body>
+
 </body>
 
 </html>

@@ -68,34 +68,19 @@ function deleteTodoFromList(){
     let buttons = document.getElementsByClassName("deleteTodo")
     console.log(buttons)
 
- let removeTodo = document.getElementsByClassName("deleteTodo");
+  let removeTodo = document.getElementsByClassName("deleteTodo");
 
 for (let i = 0; i < removeTodo.length; i++) {
   removeTodo[i].onclick = function(e) {
-    var div = this.parentElement;
-    div.style.display = "none";
-    var index = e.target.getAttribute('value');
-    todos.splice(index, 1);
+    let todo = this.parentNode;
+    todo.style.display = "none";
+    let title = e.target.getAttribute('title');// title = ex "baka en tårta"
+    todos.splice(title, 1);
     console.log(todos)
   }
 }
  
 }
-
-
-
-function myFunction() {
-    var x = document.getElementById("toggle-button");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
-
-
-
-
 
 
 

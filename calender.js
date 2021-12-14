@@ -119,7 +119,7 @@ let colorDays = elements[dayToday.getDay()];
 
 
 
-colorDays.style.color = "lightblue"
+colorDays.style.color = "darkcyan"
 
 
 }

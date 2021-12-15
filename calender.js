@@ -61,11 +61,40 @@ Calendar.prototype.render = function () {
         this.dateElements[firstDayOfMonth + daysInMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth() + 1, i + 1)
     }
 
+
+    // Highlight todays date and week day
+    this.highlightToday();
+
     // Set the month header
     document.querySelector('.date h2').innerText = Calendar.Months[this.date.getMonth()];
 
     // Set the year header
     document.querySelector('.date p').innerText = this.date.getFullYear();
+}
+
+
+Calendar.prototype.highlightToday = function () {
+    const month = new Date(this.date.getFullYear(), this.date.getMonth()); // Construct New date instance representing the first day of the current month
+    const firstDayOfMonth = month.getDay() === 0 ? 6 : month.getDay() - 1; // Date.getDay but with 0-6 representing monday-sunday
+
+    let elements = document.getElementsByClassName('weekDays')[0].getElementsByTagName('div');
+
+    // Remove text color from all weekdays
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.color = '';
+    }
+
+    // Highlight todays date and week day
+    if (
+        this.date.getFullYear() === this.today.getFullYear() &&
+        this.date.getMonth() === this.today.getMonth()
+    ) {
+        this.dateElements[firstDayOfMonth + this.date.getDate() - 1].classList.add('today');
+
+        let day = this.today.getDay() === 0 ? 6 : this.today.getDay() - 1;
+        let todayCol = elements[day];
+        todayCol.style.color = "lightblue";
+    }
 }
 
 
@@ -99,4 +128,5 @@ function Calendar() {
         dayContainer.appendChild(this.dateElements[i]);
     }
 }
+
 

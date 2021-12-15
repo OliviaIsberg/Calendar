@@ -5,6 +5,9 @@ function Calendar() {
 
     const dayContainer = document.querySelector('.days');
 
+    // Create a reference to "this" calendar object for use in event listener
+    const calendar = this;
+
     this.dateElements = new Array(42);
     for (let i = 0; i < this.dateElements.length; i++) {
         // Create div-element for each day of the month
@@ -12,7 +15,7 @@ function Calendar() {
         this.dateElements[i].className = 'day';
 
         // Sets the eventlistener for clicking on individual dates
-        this.dateElements[i].addEventListener('click', function () { });
+        this.dateElements[i].addEventListener('click', function () { calendar.setDate(this.date) });
 
         // Create p-element for date number
         let pDate = document.createElement('p');
@@ -95,6 +98,14 @@ Calendar.prototype.highlightToday = function () {
         let todayCol = elements[day];
         todayCol.style.color = "lightblue";
     }
+}
+
+
+Calendar.prototype.setDate = function (date) {
+    this.date = date;
+    this.render();
+
+    //showTodos(date);
 }
 
 

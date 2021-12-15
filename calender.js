@@ -82,10 +82,10 @@ Calendar.prototype.render = function () {
     this.highlightToday();
 
     // Set the month header
-    document.querySelector('.date h2').innerText = Calendar.Months[this.date.getMonth()];
+    document.getElementById('displayMonth').innerText = Calendar.Months[this.date.getMonth()];
 
     // Set the year header
-    document.querySelector('.date p').innerText = this.date.getFullYear();
+    document.getElementById('displayYear').innerText = this.date.getFullYear();
 }
 
 
@@ -119,6 +119,5 @@ Calendar.prototype.setDate = function (date) {
     this.render();
     document.getElementById('help').value = date.getFullYear() + '-' + (date.getMonth()+1).toString().padStart(2,'0')+ '-' + date.getDate().toString().padStart(2,'0');
     
-   
     //showTodos(date);
 }

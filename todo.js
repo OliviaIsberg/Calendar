@@ -52,6 +52,13 @@ function addtTodoToList() {
     }
 }
 
+function changeToDo() {
+
+}
+
+/**
+ * Loads the objects in localstorage
+ */
 function loadFromLS() {
     if (localStorage.getItem('listOfToDo')) {
         let todoList = JSON.parse(localStorage.getItem('listOfToDo'));

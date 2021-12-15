@@ -67,7 +67,7 @@ function loadFromLS() {
 function addTodo() {
     let todo = document.getElementById('text');
     console.log(todo.value);
-    todos.push({title: todo.value, date: new Date()});//nu så läggs "date" objektet till med datumet det är i nutid när man trycker på knappen.
+    todos.push({ title: todo.value, date: new Date() });//nu så läggs "date" objektet till med datumet det är i nutid när man trycker på knappen.
     addtTodoToList()                                  // det kvarstår nu att lösa så att den lägg tills med rätt datum. 
     console.log(todos)
 
@@ -88,27 +88,9 @@ function deleteTodoFromList() {
             let index = e.target.getAttribute('value');// title = ex "baka en tårta"
             todos.splice(index, 1);
             console.log(todos)
-
-
-
-for (let i = 0; i < removeTodo.length; i++) {
-  removeTodo[i].onclick = function(e) {
-    let todo = this.parentNode;
-    todo.style.display = "none";
-    let title = e.target.getAttribute('list-item');// title = ex "baka en tårta"
-    todos.splice(title, 1);
-    console.log(todos)
-  }
-}
- 
-}
-
-
         }
-
-
+    }
 }
-
 
 const todos = [
     {

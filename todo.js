@@ -6,6 +6,8 @@ function addEventListeners() {
     let test = document.querySelector('form');
     test.addEventListener('submit', addTodo);
 
+    // document.querySelector('.deleteBtnToDo').addEventListener('click', changeToDoWhenButtonPress); //trycka på todo för att ändra
+
 }
 
 function inputFieldToDoList(e) {
@@ -38,11 +40,35 @@ function addtTodoToList() {
         liTodo.className = "list-item"
 
 
+
+
         // lägg till li-elementet i UL'en
         ulTodo.append(liTodo);
     }
 }
 
+function changeToDoWhenButtonPress() {
+    let deleteBtn = document.createElement('button');
+    deleteBtn.classList = 'deleteBtnToDo';
+    document.querySelector('.list-item').append(deleteBtn);
+    deleteBtn.innerText = 'Ändra';
+
+
+    // if (liTodo.addEventListener('click', changeToDo)) {
+    // let changeAnToDoInput = document.createElement('input');
+    // document.getElementById('todoULDOM').append('changeAnToDoInput');
+    // changeAnToDoInput.addEventListener("keyup", function (event) {
+    //     event.keyCode === 13;
+    //     })
+
+
+
+    // }
+}
+
+/**
+ * Load content from Localstorage
+ */
 function loadFromLS() {
     if (localStorage.getItem('listOfToDo')) {
         let todoList = JSON.parse(localStorage.getItem('listOfToDo'));
@@ -50,6 +76,10 @@ function loadFromLS() {
         todoList.forEach(element => {
             todos.push(element)
         })
+    } if (localStorage.getItem('listOfToDo')) {
+        deleteTodoFromList();
+        let todoList = JSON.parse(localStorage.getItem('listOfToDo'));  //om man deletar så ska arrayen hämtas på nytt
+
     }
 }
 

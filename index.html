@@ -10,45 +10,46 @@
     <script src="./calender.js"></script>
     <script src="./today.js"></script>
     <script src="./todo.js"></script>
+    <script src="./main.js"></script>
     <title>Calender</title>
 </head>
 
 <body>
     <header>
         <div class="header">
-        <h1>kalender för hushållet</h1>
-    </div>
+            <h1>kalender för hushållet</h1>
+        </div>
     </header>
 
-<div class="container-row">
-    <!-- <div class="container-sidebar-calendar"> -->
+    <div class="container-row">
+        <!-- <div class="container-sidebar-calendar"> -->
         <aside class="sidebar">
             <div class="sidebar-todo">
 
-            <div class='date-div'>
-                <h2 class="displayDay">TODAY</h2>
-                <h3 class="displayDate"></h3>
-                <p class="displayTime">00</p>
-            </div>
-            <div class="todo" id="todo">
-                <div class="addTodo">
-                    <i id="toggle-button" class="far fa-plus-square big"></i>
-                    <form class="todo-box">
-                        <input type="text" id="text">
-                        <button class="submitbutton">
-                            <i class="far fa-plus-square small"></i>
-                        </button>
-
-                    </form>
+                <div class='date-div'>
+                    <h2 class="displayDay">TODAY</h2>
+                    <h3 class="displayDate"></h3>
+                    <p class="displayTime">00</p>
                 </div>
-                <div class="todo-list">
-                    <ul id=todoULDOM></ul>
+                <div class="todo" id="todo">
+                    <div class="addTodo">
+                        <i id="toggle-button" class="far fa-plus-square big"></i>
+                        <form class="todo-box">
+                            <input type="text" id="text">
+                            <button class="submitbutton">
+                                <i class="far fa-plus-square small"></i>
+                            </button>
 
+                        </form>
+                    </div>
+                    <div class="todo-list">
+                        <ul id=todoULDOM></ul>
+
+                    </div>
                 </div>
             </div>
-</div>
         </aside>
-         <main> 
+        <main>
             <div class="calendar">
                 <div class="month">
                     <i class="fas fa-angle-left prev"></i>
@@ -86,7 +87,7 @@
                 </div>
             </div>
         </main>
-    <!-- </div> -->
+        <!-- </div> -->
     </div>
 
 

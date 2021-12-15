@@ -74,7 +74,7 @@ for (let i = 0; i < removeTodo.length; i++) {
   removeTodo[i].onclick = function(e) {
     let todo = this.parentNode;
     todo.style.display = "none";
-    let title = e.target.getAttribute('title');// title = ex "baka en tårta"
+    let title = e.target.getAttribute('list-item');// title = ex "baka en tårta"
     todos.splice(title, 1);
     console.log(todos)
   }

@@ -117,6 +117,5 @@ Calendar.prototype.highlightToday = function () {
 Calendar.prototype.setDate = function (date) {
     this.date = date;
     this.render();
-
     //showTodos(date);
 }

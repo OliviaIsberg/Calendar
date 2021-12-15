@@ -1,13 +1,3 @@
-window.addEventListener('load', mainToDo);
-
-function mainToDo() {
-    loadFromLS();
-    addEventListeners();
-    addtTodoToList()
-    deleteTodoFromList()
-    changeToDoWhenButtonPress();
-}
-
 function addEventListeners() {
     let form = document.querySelector('form');
     form.addEventListener('submit', inputFieldToDoList);
@@ -127,8 +117,15 @@ const todos = [
     {
         title: 'baka en tårta',
         date: '2021-12-09',
+    },
+    {
+        title: 'baka en tårta',
+        date: '2021-12-09',
+    },
+    {
+        title: 'baka en tårta',
+        date: '2021-12-09',
     }
-
 ];
 
 console.log(todos)

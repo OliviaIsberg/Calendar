@@ -53,14 +53,13 @@ function addtTodoToList() {
 }
 
 function loadFromLS() {
+    if (localStorage.getItem('listOfToDo')) {
+        let todoList = JSON.parse(localStorage.getItem('listOfToDo'));
 
-
-    let todoList = JSON.parse(localStorage.getItem('listOfToDo'));
-
-    console.log(todoList)
-    todoList.forEach(element => {
-        todos.push(element)
-    })
+        todoList.forEach(element => {
+            todos.push(element)
+        })
+    }
 }
 
 
@@ -91,7 +90,7 @@ function deleteTodoFromList() {
             console.log(todos)
 
 
-=======
+
 for (let i = 0; i < removeTodo.length; i++) {
   removeTodo[i].onclick = function(e) {
     let todo = this.parentNode;
@@ -106,7 +105,7 @@ for (let i = 0; i < removeTodo.length; i++) {
 
 
         }
-    }
+
 
 }
 

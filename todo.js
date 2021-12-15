@@ -5,6 +5,7 @@ function mainToDo() {
     addEventListeners();
     addtTodoToList()
     deleteTodoFromList()
+    
 }
 
 function addEventListeners() {
@@ -12,8 +13,7 @@ function addEventListeners() {
     form.addEventListener('submit', inputFieldToDoList);
     const toggleButton = document.getElementById('toggle-button');
     toggleButton.addEventListener('click', toggleForm)
-    let test = document.querySelector('form');
-    test.addEventListener('submit', addTodo);
+    form.addEventListener('submit', addTodo);
 
 }
 
@@ -66,12 +66,19 @@ function loadFromLS() {
 //funktionen som gör så att ett nytt list-element skapas. 
 function addTodo() {
     let todo = document.getElementById('text');
+        if (todo.value.trim() === '') {
+
+            return
+    
+        }
     console.log(todo.value);
-    todos.push({ title: todo.value, date: new Date() });//nu så läggs "date" objektet till med datumet det är i nutid när man trycker på knappen.
-    addtTodoToList()                                  // det kvarstår nu att lösa så att den lägg tills med rätt datum. 
+    let date = document.getElementById('help').value
+    todos.push({ title: todo.value, date: date });//nu så läggs "date" objektet till med datumet det är i nutid när man trycker på knappen. // det kvarstår nu att lösa så att den lägg tills med rätt datum.
+
+    addtTodoToList()       
     console.log(todos)
 
-    localStorage.setItem("listOfToDo", JSON.stringify(todos));
+     localStorage.setItem("listOfToDo", JSON.stringify(todos));
 }
 
 // en funktion som tar bort "todo" från listan samt tar bort onjektet från arrayen. från arrayen. 

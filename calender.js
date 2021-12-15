@@ -15,7 +15,7 @@ function Calendar() {
         this.dateElements[i].className = 'day';
 
         // Sets the eventlistener for clicking on individual dates
-        this.dateElements[i].addEventListener('click', function () { calendar.setDate(this.date) });
+        this.dateElements[i].addEventListener('click', function () { calendar.setDate(this.date)});
 
         // Create p-element for date number
         let pDate = document.createElement('p');
@@ -117,6 +117,8 @@ Calendar.prototype.highlightToday = function () {
 Calendar.prototype.setDate = function (date) {
     this.date = date;
     this.render();
-
+    document.getElementById('help').value = date.getFullYear() + '-' + (date.getMonth()+1).toString().padStart(2,'0')+ '-' + date.getDate().toString().padStart(2,'0');
+    
+   
     //showTodos(date);
 }

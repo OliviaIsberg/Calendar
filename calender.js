@@ -30,6 +30,16 @@ function Calendar() {
         dayContainer.appendChild(this.dateElements[i]);
     }
 
+    document.querySelector('.prev').addEventListener('click', () => {
+        this.date.setMonth(this.date.getMonth() - 1);
+        this.render();
+    });
+
+    document.querySelector('.next').addEventListener('click', () => {
+        this.date.setMonth(this.date.getMonth() + 1);
+        this.render();
+    });
+
     this.render();
 }
 

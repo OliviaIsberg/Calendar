@@ -149,7 +149,6 @@ body{
   
 .days div:hover:not(.today) {
     background-color: #adb3ae50;
-    /* border: 0.2rem solid #777; */
 }
   
 .prev-date,
@@ -163,7 +162,6 @@ body{
 
 .todo-list {
       max-height: 310px;
-      visibility: hidden;
       overflow: scroll;
       border: solid;
       border-color: rgba(0, 0, 0, 0.808);
@@ -173,9 +171,7 @@ body{
       visibility: visible;
 }
 
-.todo-box {
-    visibility: hidden;
- }
+
 .todo-box.hide {
     visibility: visible;
 }

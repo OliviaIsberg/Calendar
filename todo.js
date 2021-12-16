@@ -28,7 +28,7 @@ function addtTodoToList() {
     // Hämta UL från html,
     const ulTodo = document.getElementById('todoULDOM');
     ulTodo.innerHTML = "";
-    updateLs(todos)
+
 
     // loopa igenom arrayen med "todo" objekten
     for (const todo of todos) {
@@ -64,18 +64,17 @@ function saveToLs(keyname, keyvalue) {
     localStorage.setItem(keyname, keyvalue);
 
 }
-function updateLs(stuff) {
-    stuff.forEach(element => {
-        console.log(element)
-        localStorage.setItem(element.title, element.date)
-    })
 
-}
 
 function loadFromLS() {
-
-
+const todoStr= localStorage.getItem('todo');
+    if(todoStr){
+        todos = JSON.parse(todoStr);
+    }
 }
+
+
+
 
 
 //funktionen som gör så att ett nytt list-element skapas.
@@ -94,7 +93,7 @@ function addTodo() {
     console.log(todos)
     todo.value = ''
 
-
+    localStorage.setItem('todo', JSON.stringify(todos));
 }
 
 // en funktion som tar bort "todo" från listan samt tar bort onjektet från arrayen. från arrayen.
@@ -116,21 +115,22 @@ function deleteTodoFromList() {
     }
 }
 
-const todos = [
+let todos =  {
+    '2021-12-15': [
     {
+
         title: 'baka en tårta',
-        date: '2021-12-09',
+
     },
     {
-        title: 'baka en tårta',
-        date: '2021-12-10',
+        title: 'baka en kaka',
+
     },
     {
-        title: 'baka en tårta',
-        date: '2021-12-11',
+        title: 'baka glass',
+
     }
-];
+]};
 
 console.log(todos)
 
-const todosByDay = todos.filter((todo) => todo.date === "2021-12-10")

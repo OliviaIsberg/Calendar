@@ -112,6 +112,7 @@ function deleteTodoFromList() {
     let buttons = document.getElementsByClassName("deleteTodo")
     let removeTodo = document.getElementsByClassName("deleteTodo");
 
+
     for (let i = 0; i < removeTodo.length; i++) {
         removeTodo[i].onclick = function (e) {
             let todo = this.parentNode;
@@ -122,8 +123,14 @@ function deleteTodoFromList() {
     }
 }
 
-function showNumberOfTodos() {
+function getNumberOfTodos(date) {
+    const key = date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
 
+    return todos.hasOwnProperty(key) ? todos[key].length : 0;
+}
+
+function showNumberOfTodos(date) {
+    document.getElementsByClassName('todoCount').innerHTML = date.key.length;
 }
 
 let todos = {};

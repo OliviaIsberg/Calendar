@@ -24,8 +24,12 @@ function Calendar() {
 
         // Create p-element for holiday name
         let pHoliday = document.createElement('p');
-        pHoliday.className = 'holiday-name'
+        pHoliday.className = 'holiday-name';
         this.dateElements[i].appendChild(pHoliday);
+
+        let pTodoCount = document.createElement('p');
+        pTodoCount.className = 'todoCount';
+        this.dateElements[i].appendChild(pTodoCount);
 
         // Append div to the container
         dayContainer.appendChild(this.dateElements[i]);
@@ -66,7 +70,11 @@ Calendar.prototype.render = function () {
         this.dateElements[firstDayOfMonth + i].firstChild.innerText = i + 1;
         this.dateElements[firstDayOfMonth + i].className = 'day';
         this.dateElements[firstDayOfMonth + i].getElementsByTagName('p')[1].innerText = '';
-        this.dateElements[firstDayOfMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth(), i + 1)
+        this.dateElements[firstDayOfMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth(), i + 1);
+
+        let numberOfTodos = getNumberOfTodos(this.dateElements[firstDayOfMonth + i].date);
+        this.dateElements[firstDayOfMonth + i].getElementsByClassName('todoCount')[0].innerText = numberOfTodos;
+
     }
 
     // Sets text and classes for the days belonging to the next month

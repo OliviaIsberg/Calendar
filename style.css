@@ -201,5 +201,18 @@ border: none;
 
 }
 
+.todoCount {
+    color: pink;
+    font-size: 14px;
+}
+
+.day{
+    flex-direction: column;
+}
+
+.days .day p {
+    margin: 0;
+}
+
 
 

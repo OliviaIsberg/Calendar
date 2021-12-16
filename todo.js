@@ -62,8 +62,6 @@ function changeToDoWhenButtonPress() {
 
     document.querySelector('.list-item').append(deleteBtn);
     deleteBtn.innerText = 'Ändra';
-
-
 }
 
 /**
@@ -82,13 +80,6 @@ const todoStr= localStorage.getItem('todo');
         todos = JSON.parse(todoStr);
     }
 }
-
-
-
-    deleteBtn.innerText = 'Ändra'
-    listItem.append(deleteBtn);
-}
-
 
 
 //funktionen som gör så att ett nytt list-element skapas.
@@ -156,20 +147,6 @@ let todos =  {
 
 console.log(todos)
 
-
-let todos = {
-    '2021-12-15': [
-        {
-            title: 'baka en tårta'
-        },
-        {
-            title: 'baka en kaka'
-        },
-        {
-            title: 'baka glass'
-        },
-    ]
-}
 
 console.log(todos['2021-12-15'].length)
 

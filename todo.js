@@ -1,4 +1,3 @@
-
 function addEventListeners() {
     let form = document.querySelector('form');
     form.addEventListener('submit', inputFieldToDoList);
@@ -24,26 +23,27 @@ function toggleForm() {
 }
 
 
-//funktionen som skapar list-elementet. 
+//funktionen som skapar list-elementet.
 function addtTodoToList() {
-    // Hämta UL från html, 
+    // Hämta UL från html,
     const ulTodo = document.getElementById('todoULDOM');
     ulTodo.innerHTML = "";
+    updateLs(todos)
 
     // loopa igenom arrayen med "todo" objekten
     for (const todo of todos) {
 
         //skapar ett list-element ("Li") för varje  objekt "todo" ur arrayen todos och skriver ut "title" ur objektet i DOMen. samt
-        // lägger till en knapp som har funktion on click. 
+        // lägger till en knapp som har funktion on click.
         const liTodo = document.createElement("li");
         liTodo.innerHTML = todo.title + `<button onclick=deleteTodoFromList() class="deleteTodo">X</button>`;
         liTodo.className = "list-item"
-
-
+        saveToLs(todo.title, todo.date)
 
 
         // lägg till li-elementet i UL'en
         ulTodo.append(liTodo);
+
     }
 }
 
@@ -54,55 +54,50 @@ function changeToDoWhenButtonPress() {
     deleteBtn.innerText = 'Ändra';
 
 
-    // if (liTodo.addEventListener('click', changeToDo)) {
-    // let changeAnToDoInput = document.createElement('input');
-    // document.getElementById('todoULDOM').append('changeAnToDoInput');
-    // changeAnToDoInput.addEventListener("keyup", function (event) {
-    //     event.keyCode === 13;
-    //     })
-
-
-
-    // }
 }
 
 /**
- * Load content from Localstorage
+ * Save content to Localstorage
  */
+
+function saveToLs(keyname, keyvalue) {
+    localStorage.setItem(keyname, keyvalue);
+
+}
+function updateLs(stuff) {
+    stuff.forEach(element => {
+        console.log(element)
+        localStorage.setItem(element.title, element.date)
+    })
+
+}
+
 function loadFromLS() {
-    if (localStorage.getItem('listOfToDo')) {
-        let todoList = JSON.parse(localStorage.getItem('listOfToDo'));
 
-        todoList.forEach(element => {
-            todos.push(element)
-        })
-    } if (localStorage.getItem('listOfToDo')) {
-        deleteTodoFromList();
-        let todoList = JSON.parse(localStorage.getItem('listOfToDo'));  //om man deletar så ska arrayen hämtas på nytt
 
-    }
 }
 
 
-//funktionen som gör så att ett nytt list-element skapas. 
+//funktionen som gör så att ett nytt list-element skapas.
 function addTodo() {
     let todo = document.getElementById('text');
-        if (todo.value.trim() === '') {
+    if (todo.value.trim() === '') {
 
-            return
-    
-        }
+        return
+
+    }
     console.log(todo.value);
     let date = document.getElementById('help').value
-    todos.push({ title: todo.value, date: date });//nu så läggs "date" objektet till med datumet det är i nutid när man trycker på knappen. // det kvarstår nu att lösa så att den lägg tills med rätt datum.
+    todos.push({title: todo.value, date: date});//nu så läggs "date" objektet till med datumet det är i nutid när man trycker på knappen. // det kvarstår nu att lösa så att den lägg tills med rätt datum.
 
-    addtTodoToList()       
+    addtTodoToList()
     console.log(todos)
+    todo.value = ''
 
-     localStorage.setItem("listOfToDo", JSON.stringify(todos));
+
 }
 
-// en funktion som tar bort "todo" från listan samt tar bort onjektet från arrayen. från arrayen. 
+// en funktion som tar bort "todo" från listan samt tar bort onjektet från arrayen. från arrayen.
 function deleteTodoFromList() {
     let buttons = document.getElementsByClassName("deleteTodo")
     console.log(buttons)
@@ -116,6 +111,7 @@ function deleteTodoFromList() {
             let index = e.target.getAttribute('value');// title = ex "baka en tårta"
             todos.splice(index, 1);
             console.log(todos)
+            localStorage.clear()
         }
     }
 }
@@ -127,11 +123,11 @@ const todos = [
     },
     {
         title: 'baka en tårta',
-        date: '2021-12-09',
+        date: '2021-12-10',
     },
     {
         title: 'baka en tårta',
-        date: '2021-12-09',
+        date: '2021-12-11',
     }
 ];
 

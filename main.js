@@ -8,4 +8,5 @@ function main() {
     addtTodoToList();
     deleteTodoFromList();
     startClock();
+    changeToDoWhenButtonPress();
 }

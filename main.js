@@ -1,4 +1,5 @@
-window.addEventListener('load', main);
+//window.addEventListener('load', main);
+window.addEventListener('DOMContentLoaded', main);
 
 function main() {
     const calendar = new Calendar();

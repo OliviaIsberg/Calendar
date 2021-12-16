@@ -2,6 +2,7 @@
 * Keeps the time updated
 */
 function startClock() {
+    renderClock();
     setInterval(renderClock, 1000);
 }
 

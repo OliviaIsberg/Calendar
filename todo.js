@@ -126,22 +126,4 @@ function showNumberOfTodos() {
 
 }
 
-
-let todos = {
-    '2021-12-15': [
-        {
-
-            title: 'baka en tårta',
-
-        },
-        {
-            title: 'baka en kaka',
-
-        },
-        {
-            title: 'baka glass',
-
-        }
-    ]
-};
-
+let todos = {};

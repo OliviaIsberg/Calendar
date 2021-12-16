@@ -62,8 +62,6 @@ function changeToDoWhenButtonPress() {
 
     document.querySelector('.list-item').append(deleteBtn);
     deleteBtn.innerText = 'Ändra';
-
-
 }
 
 /**

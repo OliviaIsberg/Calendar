@@ -24,21 +24,25 @@ function toggleForm() {
 
 
 //funktionen som skapar list-elementet.
-function addtTodoToList() {
+function addtTodoToList(date) {
+    const key = date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
+
     // Hämta UL från html,
     const ulTodo = document.getElementById('todoULDOM');
     ulTodo.innerHTML = "";
-    updateLs(todos)
+
+    if (!todos.hasOwnProperty(key)) {
+        return
+    }
 
     // loopa igenom arrayen med "todo" objekten
-    for (const todo of todos) {
+    for (const todo of todos[key]) {
 
         //skapar ett list-element ("Li") för varje  objekt "todo" ur arrayen todos och skriver ut "title" ur objektet i DOMen. samt
         // lägger till en knapp som har funktion on click.
         const liTodo = document.createElement("li");
         liTodo.innerHTML = todo.title + `<button onclick=deleteTodoFromList() class="deleteTodo">X</button>`;
         liTodo.className = "list-item"
-        saveToLs(todo.title, todo.date)
 
 
         // lägg till li-elementet i UL'en
@@ -48,33 +52,15 @@ function addtTodoToList() {
 }
 
 function changeToDoWhenButtonPress() {
+    const listItem = document.querySelector('.list-item')
+    if (!listItem) {
+        return;
+    }
+
     let deleteBtn = document.createElement('button');
     deleteBtn.classList = 'deleteBtnToDo';
-    document.querySelector('.list-item').append(deleteBtn);
-    deleteBtn.innerText = 'Ändra';
-
-
-}
-
-/**
- * Save content to Localstorage
- */
-
-function saveToLs(keyname, keyvalue) {
-    localStorage.setItem(keyname, keyvalue);
-
-}
-function updateLs(stuff) {
-    stuff.forEach(element => {
-        console.log(element)
-        localStorage.setItem(element.title, element.date)
-    })
-
-}
-
-function loadFromLS() {
-
-
+    deleteBtn.innerText = 'Ändra'
+    listItem.append(deleteBtn);
 }
 
 
@@ -82,18 +68,23 @@ function loadFromLS() {
 function addTodo() {
     let todo = document.getElementById('text');
     if (todo.value.trim() === '') {
-
-        return
-
+        return;
     }
+
+
     console.log(todo.value);
-    let date = document.getElementById('help').value
-    todos.push({title: todo.value, date: date});//nu så läggs "date" objektet till med datumet det är i nutid när man trycker på knappen. // det kvarstår nu att lösa så att den lägg tills med rätt datum.
+    let dateStr = document.getElementById('help').value;
+    let date = new Date(dateStr);
+    if (!todos.hasOwnProperty(dateStr)) {
+        todos[dateStr] = [];
+    }
 
-    addtTodoToList()
-    console.log(todos)
-    todo.value = ''
+    todos[dateStr].push({ title: todo.value.trim() });
+    //todos.push({ title: todo.value, date: dateStr });//nu så läggs "date" objektet till med datumet det är i nutid när man trycker på knappen. // det kvarstår nu att lösa så att den lägg tills med rätt datum.
 
+    addtTodoToList(date);
+    console.log(todos);
+    todo.value = '';
 
 }
 
@@ -111,26 +102,22 @@ function deleteTodoFromList() {
             let index = e.target.getAttribute('value');// title = ex "baka en tårta"
             todos.splice(index, 1);
             console.log(todos)
-            localStorage.clear()
         }
     }
 }
 
-const todos = [
-    {
-        title: 'baka en tårta',
-        date: '2021-12-09',
-    },
-    {
-        title: 'baka en tårta',
-        date: '2021-12-10',
-    },
-    {
-        title: 'baka en tårta',
-        date: '2021-12-11',
-    }
-];
+let todos = {
+    '2021-12-15': [
+        {
+            title: 'baka en tårta'
+        },
+        {
+            title: 'baka en kaka'
+        },
+        {
+            title: 'baka glass'
+        },
+    ]
+}
 
-console.log(todos)
-
-const todosByDay = todos.filter((todo) => todo.date === "2021-12-10")
+console.log(todos['2021-12-15'].length)

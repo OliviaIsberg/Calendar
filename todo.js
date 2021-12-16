@@ -5,7 +5,7 @@ function addEventListeners() {
     toggleButton.addEventListener('click', toggleForm)
     form.addEventListener('submit', addTodo);
 
-    // document.querySelector('.deleteBtnToDo').addEventListener('click', changeToDoWhenButtonPress); //trycka på todo för att ändra
+     document.querySelector('.deleteBtnToDo').addEventListener('click', changeToDoWhenButtonPress);
 
 }
 
@@ -43,6 +43,11 @@ function addtTodoToList(date) {
         liTodo.innerHTML = todo.title + `<button onclick=deleteTodoFromList() class="deleteTodo">X</button>`;
         liTodo.className = "list-item"
 
+        // let deleteBtn = document.createElement('button');
+        // deleteBtn.classList = 'deleteBtnToDo';
+        //
+        //  // document.querySelector('.list-item').append(deleteBtn);
+        //  deleteBtn.innerText = 'Ändra';
 
         // lägg till li-elementet i UL'en
         ulTodo.append(liTodo);
@@ -56,11 +61,9 @@ function changeToDoWhenButtonPress() {
         return;
     }
 
-    let deleteBtn = document.createElement('button');
-    deleteBtn.classList = 'deleteBtnToDo';
 
-    document.querySelector('.list-item').append(deleteBtn);
-    deleteBtn.innerText = 'Ändra';
+
+    addtTodoToList();
 }
 
 /**
@@ -118,6 +121,7 @@ function deleteTodoFromList() {
             todo.style.display = "none";
             let index = e.target.getAttribute('value');// title = ex "baka en tårta"
             todos.splice(index, 1);
+
         }
     }
 }

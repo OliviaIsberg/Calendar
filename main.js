@@ -10,4 +10,5 @@ function main() {
     deleteTodoFromList();
     startClock();
     changeToDoWhenButtonPress();
+    showNumberOfTodos();
 }

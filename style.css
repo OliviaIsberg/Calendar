@@ -4,7 +4,7 @@ body{
     background-image:url("./moving.gif");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+  
 
 }
 
@@ -213,6 +213,95 @@ border: none;
 .days .day p {
     margin: 0;
 }
+
+
+
+@media screen and (max-width: 1200px) {
+    .weekDays div {
+        font-size: 0.8rem;
+    }
+    h2.displayDay{
+        font-size: 1.5rem;
+    }
+    .header{
+        font-size: 0.8rem;
+    }
+    .month{
+        font-size: 0.7rem;
+
+    }
+    #toggle-button{
+        font-size: 4rem;
+    }
+  }
+
+  @media screen and (max-width: 950px) {
+    .weekDays div {
+        font-size: 0.6rem;
+    }
+    h2.displayDay{
+        font-size: 1rem;
+    }
+    .header{
+        font-size: 0.6rem;
+    }
+    .month{
+        font-size: 0.5rem;
+
+    }
+    .day{
+        font-size: 0.8rem;
+        padding: 0.5rem;
+        
+    }
+    .sidebar{
+        max-width: 80%;
+    }
+    #toggle-button{
+        font-size: 3rem;
+    }
+    #text{
+        width:90px
+    }
+  }
+
+
+  @media screen and (max-width: 620px) {
+    .weekDays div {
+        font-size: 0.6rem;
+    }
+    h2.displayDay{
+        font-size: 2rem;
+    }
+    .header{
+        font-size: 0.6rem;
+    }
+    .month{
+        font-size: 0.5rem;
+
+    }
+    .day{
+        font-size: 0.8rem;
+        padding: 0.5rem;
+        
+    }
+    .sidebar{
+        max-width: 100%;
+        padding: 50px;
+    }
+    #toggle-button{
+        font-size: 3rem;
+    }
+    #text{
+        width: 120px;
+    }
+    main{
+        display: none;
+    }
+    .todo-list{
+        min-height: 250px;
+    }
+  } 
 
 
 

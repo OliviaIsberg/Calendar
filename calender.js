@@ -117,7 +117,7 @@ Calendar.prototype.highlightToday = function () {
 
         let day = this.today.getDay() === 0 ? 6 : this.today.getDay() - 1;
         let todayCol = elements[day];
-        todayCol.style.color = "lightblue";
+        todayCol.style.color = "darkcyan";
     }
 }
 

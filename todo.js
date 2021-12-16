@@ -59,9 +59,36 @@ function changeToDoWhenButtonPress() {
 
     let deleteBtn = document.createElement('button');
     deleteBtn.classList = 'deleteBtnToDo';
+
+    document.querySelector('.list-item').append(deleteBtn);
+    deleteBtn.innerText = 'Ändra';
+
+
+}
+
+/**
+ * Save content to Localstorage
+ */
+
+function saveToLs(keyname, keyvalue) {
+    localStorage.setItem(keyname, keyvalue);
+
+}
+
+
+function loadFromLS() {
+const todoStr= localStorage.getItem('todo');
+    if(todoStr){
+        todos = JSON.parse(todoStr);
+    }
+}
+
+
+
     deleteBtn.innerText = 'Ändra'
     listItem.append(deleteBtn);
 }
+
 
 
 //funktionen som gör så att ett nytt list-element skapas.
@@ -82,9 +109,12 @@ function addTodo() {
     todos[dateStr].push({ title: todo.value.trim() });
     //todos.push({ title: todo.value, date: dateStr });//nu så läggs "date" objektet till med datumet det är i nutid när man trycker på knappen. // det kvarstår nu att lösa så att den lägg tills med rätt datum.
 
+    localStorage.setItem('todo', JSON.stringify(todos));
+
     addtTodoToList(date);
     console.log(todos);
     todo.value = '';
+
 
 }
 
@@ -106,6 +136,27 @@ function deleteTodoFromList() {
     }
 }
 
+
+let todos =  {
+    '2021-12-15': [
+    {
+
+        title: 'baka en tårta',
+
+    },
+    {
+        title: 'baka en kaka',
+
+    },
+    {
+        title: 'baka glass',
+
+    }
+]};
+
+console.log(todos)
+
+
 let todos = {
     '2021-12-15': [
         {
@@ -121,3 +172,4 @@ let todos = {
 }
 
 console.log(todos['2021-12-15'].length)
+

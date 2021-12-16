@@ -11,7 +11,6 @@ function addEventListeners() {
 
 function inputFieldToDoList(e) {
     let textInput = document.getElementById('text');
-    console.log(textInput.value);
     e.preventDefault();
 }
 
@@ -75,8 +74,8 @@ function saveToLs(keyname, keyvalue) {
 
 
 function loadFromLS() {
-const todoStr= localStorage.getItem('todo');
-    if(todoStr){
+    const todoStr = localStorage.getItem('todo');
+    if (todoStr) {
         todos = JSON.parse(todoStr);
     }
 }
@@ -103,7 +102,6 @@ function addTodo() {
     localStorage.setItem('todo', JSON.stringify(todos));
 
     addtTodoToList(date);
-    console.log(todos);
     todo.value = '';
 
 
@@ -112,8 +110,6 @@ function addTodo() {
 // en funktion som tar bort "todo" från listan samt tar bort onjektet från arrayen. från arrayen.
 function deleteTodoFromList() {
     let buttons = document.getElementsByClassName("deleteTodo")
-    console.log(buttons)
-
     let removeTodo = document.getElementsByClassName("deleteTodo");
 
     for (let i = 0; i < removeTodo.length; i++) {
@@ -122,31 +118,30 @@ function deleteTodoFromList() {
             todo.style.display = "none";
             let index = e.target.getAttribute('value');// title = ex "baka en tårta"
             todos.splice(index, 1);
-            console.log(todos)
         }
     }
 }
 
+function showNumberOfTodos() {
 
-let todos =  {
+}
+
+
+let todos = {
     '2021-12-15': [
-    {
+        {
 
-        title: 'baka en tårta',
+            title: 'baka en tårta',
 
-    },
-    {
-        title: 'baka en kaka',
+        },
+        {
+            title: 'baka en kaka',
 
-    },
-    {
-        title: 'baka glass',
+        },
+        {
+            title: 'baka glass',
 
-    }
-]};
-
-console.log(todos)
-
-
-console.log(todos['2021-12-15'].length)
+        }
+    ]
+};
 

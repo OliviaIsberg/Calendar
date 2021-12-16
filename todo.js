@@ -84,10 +84,6 @@ const todoStr= localStorage.getItem('todo');
 }
 
 
-
-
-
-
 //funktionen som gör så att ett nytt list-element skapas.
 function addTodo() {
     let todo = document.getElementById('text');

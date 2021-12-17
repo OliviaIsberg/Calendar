@@ -94,6 +94,10 @@ Calendar.prototype.render = function () {
 
     // Set the year header
     document.getElementById('displayYear').innerText = this.date.getFullYear();
+
+
+    // Request and render holidays
+    this.getHolidays();
 }
 
 
@@ -120,6 +124,21 @@ Calendar.prototype.highlightToday = function () {
         todayCol.style.color = "darkcyan";
     }
 }
+
+Calendar.prototype.getHolidays = function () {
+    // Constructs uri to request the "red" days and named holidays for the active month from sholiday.faboul.se
+    const uri = 'https://sholiday.faboul.se/dagar/v2.1/' + this.date.getFullYear() + '/' + (this.date.getMonth() + 1).toString().padStart(2, '0');
+    fetch(uri) // fetches the JSON-data from the uri above
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Could not fetch holidays from faboul.se');
+            }
+
+            return response.json();
+        })
+
+}
+
 
 
 Calendar.prototype.setDate = function (date) {

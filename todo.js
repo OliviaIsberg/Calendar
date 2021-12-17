@@ -1,8 +1,6 @@
 function addEventListeners() {
     let form = document.querySelector('form');
     form.addEventListener('submit', inputFieldToDoList);
-    const toggleButton = document.getElementById('toggle-button');
-    toggleButton.addEventListener('click', toggleForm)
     form.addEventListener('submit', addTodo);
 
 
@@ -134,6 +132,7 @@ function deleteTodoFromList() {
             let todo = this.parentNode;
             todo.style.display = "none";
             let index = e.target.getAttribute('value');// title = ex "baka en tårta"
+
             // todos.splice(index, 1);
 
         }
@@ -144,10 +143,6 @@ function getNumberOfTodos(date) {
     const key = date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
 
     return todos.hasOwnProperty(key) ? todos[key].length : 0;
-}
-
-function showNumberOfTodos(date) {
-    document.getElementsByClassName('todoCount').innerHTML = date.key.length;
 }
 
 let todos = {};

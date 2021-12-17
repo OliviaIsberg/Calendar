@@ -12,7 +12,7 @@ function inputFieldToDoList(e) {
 }
 
 function toggleForm() {
-    const form = document.getElementsByClassName('todo-box')[0];
+    const form = document.getElementsByClassName('formForTodo')[0];
     form.classList.toggle('hide')
 
 

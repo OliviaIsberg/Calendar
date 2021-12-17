@@ -19,36 +19,30 @@
         <h1>kalender för hushållet</h1>
     </header>
 
-    <div class="container-row">
-        <!-- <div class="container-sidebar-calendar"> -->
+    <div class="container">
         <aside class="sidebar">
-            <div class="sidebar-todo">
+            <div class='displaysInfoAboutToday'>
+                <h2 class="displayTodaysWeekday">TODAY</h2>
+                <h3 class="displayTodaysDate"></h3>
+                <p class="displayCurrentTime">00</p>
+            </div>
+            <div class="containerForTodo" id="todo">
+                <form class="formForTodo">
+                    <input type="text" id="addTodoInputText">
+                    <input type="hidden" id="date">
+                    <button id="datebutton" class="submitbutton">
+                        <i class="far fa-plus-square smallPlusIcon"></i>
+                    </button>
 
-                <div class='date-div'>
-                    <h2 class="displayTodaysWeekday">TODAY</h2>
-                    <h3 class="displayDate"></h3>
-                    <p class="displayTime">00</p>
-                </div>
-                <div class="todo" id="todo">
-                    <div class="addTodo">
-                        <form class="todo-box">
-                            <input type="text" id="addTodoInputText">
-                            <input type="hidden" id="date">
-                            <button id="datebutton" class="submitbutton">
-                                <i class="far fa-plus-square small"></i>
-                            </button>
+                </form>
+                <div class="todo-list">
+                    <ul id=todoULDOM></ul>
 
-                        </form>
-                    </div>
-                    <div class="todo-list">
-                        <ul id=todoULDOM></ul>
-
-                    </div>
                 </div>
             </div>
         </aside>
         <main class="calandar">
-            <div class="month">
+            <div class="containerForMonthAndYear">
                 <i class="fas fa-angle-left previousMonthAndYear"></i>
                 <div class="displayMonthAndYear">
                     <h2 id="displayMonth">januari</h2>

@@ -17,9 +17,9 @@ function renderClock() {
 
     let today = new Date();
     let todaysDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    document.querySelector('.displayDate').innerHTML = `${todaysDate}`;
+    document.querySelector('.displayTodaysDate').innerHTML = `${todaysDate}`;
 
-    const timeElement = document.querySelector('.displayTime');
+    const timeElement = document.querySelector('.displayCurrentTime');
     timeElement.innerHTML = getCurrentTime(currentDate);
 }
 

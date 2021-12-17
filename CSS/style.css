@@ -1,6 +1,8 @@
-body{
+html, body {
     margin:0;
     padding:0;
+}
+body{
     background-image:url("../img/moving.gif");
     background-repeat: no-repeat;
     background-size: cover;
@@ -19,7 +21,7 @@ body{
     color: rgb(248, 247, 247);
 }
 
-.container-row{
+.container{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -32,41 +34,40 @@ body{
 
 
 .sidebar{
-    background-color:rgba(3, 1, 1, 0.384) ;
     display: flex;
-    color: rgb(255, 255, 255);
-    
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color:rgba(3, 1, 1, 0.384) ;
+    color: rgb(255, 255, 255);
 }
-.sidebar h2 {
+
+.sidebar .displayTodaysWeekday {
+    text-transform: uppercase;
     font-size: 2.5em;
 }
-.displayTodaysWeekday {
-    text-transform: uppercase;
-    
-}
-.displayDate, .displayTime{
+
+.displayTodaysDate, .displayCurrentTime{
     font-size: 1.5em;
     
 }
-.todo{
+.containerForTodo{
     margin-top: 1em;
 }
 
-.todo-box {
+.formForTodo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.todo-box .small {
+.formForTodo .smallPlusIcon {
     font-size: 2em;
     cursor: pointer;
 } 
 
-.todo-box .submitbutton {
+.formForTodo .submitbutton {
     margin-left: 1rem;
     padding: 0;
     border: none;
@@ -75,7 +76,7 @@ body{
 }
 
 
-.month{
+.containerForMonthAndYear{
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.336);
     border-bottom: dotted;
@@ -87,10 +88,15 @@ body{
     padding: 0 1em;
     text-align: center;
 }
-.fas {
+
+.previousMonthAndYear, .nextMonthAndYear {
     color: rgb(255, 255, 255);
     cursor: pointer;
     font-size: 2.5em;
+}
+
+.previousMonthAndYear-opacity, .nextMonthAndYear-opacity {
+    opacity: 0.5;
 }
 #displayMonth {
     font-size: 2.5em;
@@ -161,7 +167,7 @@ body{
 }
 
 
-.todo-box.hide {
+.formForTodo.hide {
     visibility: visible;
 }
 
@@ -222,7 +228,7 @@ border: none;
     .header{
         font-size: 0.8rem;
     }
-    .month{
+    .containerForMonthAndYear{
         font-size: 0.7rem;
 
     }
@@ -238,7 +244,7 @@ border: none;
     .header{
         font-size: 0.6rem;
     }
-    .month{
+    .containerForMonthAndYear{
         font-size: 0.5rem;
 
     }
@@ -266,7 +272,7 @@ border: none;
     .header{
         font-size: 0.6rem;
     }
-    .month{
+    .containerForMonthAndYear{
         font-size: 0.5rem;
 
     }

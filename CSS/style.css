@@ -1,6 +1,7 @@
 html, body {
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 body{
     background-image:url("../img/moving.gif");
@@ -13,10 +14,12 @@ body{
 }
 
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     color: rgb(248, 247, 247);
+}
+
+.header h1 {
+    font-size: 50px;
 }
 
 .container{
@@ -26,6 +29,7 @@ body{
     margin: 0;
     padding: 0;
     cursor: pointer;
+    min-width: 100%;
 }
 
 .sidebar{
@@ -34,7 +38,8 @@ body{
     padding-top: 9rem;
     align-items: center;
     text-align: center;
-    background-color:rgba(3, 1, 1, 0.384) ;
+    background-color:rgba(3, 1, 1, 0.384);
+    backdrop-filter: blur(5px);
     color: rgb(255, 255, 255);
 }
 
@@ -74,6 +79,7 @@ body{
 .containerForMonthAndYear{
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.336);
+    backdrop-filter: blur(5px);
     border-bottom: dotted;
     border-color: rgba(36, 36, 36, 0.733);
     display: flex;
@@ -129,6 +135,7 @@ body{
 
 .allDaysContainer{
     background-color: rgba(3, 1, 1, 0.384);
+    backdrop-filter: blur(5px);
     padding: .2em;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -290,11 +297,10 @@ body{
 
     .sidebar{
         min-width: 100%;
-        padding: 50px;
     }
 
-    #addTodoInputTexts{
-        width: 120px;
+    #addTodoInputText{
+        width: 75%;
     }
 
     .calendar{

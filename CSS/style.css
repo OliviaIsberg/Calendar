@@ -1,7 +1,7 @@
 body{
     margin:0;
     padding:0;
-    background-image:url("./moving.gif");
+    background-image:url("../img/moving.gif");
     background-repeat: no-repeat;
     background-size: cover;
 }

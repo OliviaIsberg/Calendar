@@ -43,7 +43,7 @@ body{
 .sidebar h2 {
     font-size: 2.5em;
 }
-.displayDay {
+.displayTodaysWeekday {
     text-transform: uppercase;
     
 }
@@ -73,13 +73,7 @@ body{
     background: none;
     color: whitesmoke;
 }
-.container{
-    background-color: yellowgreen;
-    width:75%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
+
 
 .month{
     color: rgb(255, 255, 255);
@@ -129,14 +123,14 @@ body{
    
 }
 
-.days{
+.allDaysContainer{
     background-color: rgba(3, 1, 1, 0.384);
     padding: .2em;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     color: rgb(255, 255, 255);
 }
-.days div {
+.allDaysContainer .eachDay {
     font-size: 1.4rem;
     margin: 0.3rem;
     height: 5rem;
@@ -147,14 +141,10 @@ body{
     position: relative;
 }
   
-.days div:hover:not(.today) {
+.allDaysContainer .eachDay:hover:not(.today) {
     background-color: #adb3ae50;
 }
-  
-.prev-date,
-.next-date {
-     opacity: 0.5;
-}
+
   
 .today {
     background-color: #8f8f8fb7;
@@ -175,7 +165,7 @@ body{
     visibility: visible;
 }
 
-#text{
+#addTodoInputText{
     border:none;
     background-color: rgba(255, 255, 255, 0.336);
     color: black;
@@ -212,11 +202,11 @@ border: none;
     font-size: 16px;
 }
 
-.day{
+.eachDay{
     flex-direction: column;
 }
 
-.days .day p {
+.allDaysContainer .eachDay p {
     margin: 0;
 }
 
@@ -226,7 +216,7 @@ border: none;
     .weekDays div {
         font-size: 0.8rem;
     }
-    h2.displayDay{
+    .displayTodaysWeekdays{
         font-size: 1.5rem;
     }
     .header{
@@ -242,7 +232,7 @@ border: none;
     .weekDays div {
         font-size: 0.6rem;
     }
-    h2.displayDay{
+    .displayTodaysWeekday{
         font-size: 1rem;
     }
     .header{
@@ -252,7 +242,7 @@ border: none;
         font-size: 0.5rem;
 
     }
-    .day{
+    .eachDay{
         font-size: 0.8rem;
         padding: 0.5rem;
         
@@ -260,7 +250,7 @@ border: none;
     .sidebar{
         max-width: 80%;
     }
-    #text{
+    #addTodoInputText{
         width:90px
     }
   }
@@ -270,7 +260,7 @@ border: none;
     .weekDays div {
         font-size: 0.6rem;
     }
-    h2.displayDay{
+    .displayTodaysWeekday{
         font-size: 2rem;
     }
     .header{
@@ -280,19 +270,19 @@ border: none;
         font-size: 0.5rem;
 
     }
-    .day{
+    .eachDay{
         font-size: 0.8rem;
         padding: 0.5rem;
         
     }
     .sidebar{
-        max-width: 100%;
+        min-width: 100%;
         padding: 50px;
     }
-    #text{
+    #addTodoInputTexts{
         width: 120px;
     }
-    main{
+    .calandar{
         display: none;
     }
     .todo-list{

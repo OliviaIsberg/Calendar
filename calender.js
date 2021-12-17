@@ -2,7 +2,7 @@ function Calendar() {
     this.date = new Date();
     this.today = new Date(this.date);
 
-    const dayContainer = document.querySelector('.days');
+    const dayContainer = document.querySelector('.allDaysContainer');
 
     // Create a reference to "this" calendar object for use in event listener
     const calendar = this;
@@ -11,7 +11,7 @@ function Calendar() {
     for (let i = 0; i < this.dateElements.length; i++) {
         // Create div-element for each day of the month
         this.dateElements[i] = document.createElement('div');
-        this.dateElements[i].className = 'day';
+        this.dateElements[i].className = 'eachDay';
 
         // Sets the eventlistener for clicking on individual dates
         this.dateElements[i].addEventListener('click', function () { calendar.setDate(this.date) });
@@ -34,12 +34,12 @@ function Calendar() {
         dayContainer.appendChild(this.dateElements[i]);
     }
 
-    document.querySelector('.prev').addEventListener('click', () => {
+    document.querySelector('.previousMonthAndYear').addEventListener('click', () => {
         this.date.setMonth(this.date.getMonth() - 1);
         this.render();
     });
 
-    document.querySelector('.next').addEventListener('click', () => {
+    document.querySelector('.nextMonthAndYear').addEventListener('click', () => {
         this.date.setMonth(this.date.getMonth() + 1);
         this.render();
     });
@@ -59,7 +59,7 @@ Calendar.prototype.render = function () {
     // Sets text and classes for the days belonging to the previous month
     for (let i = 0; i < firstDayOfMonth; i++) {
         this.dateElements[i].firstChild.innerText = daysInPreviousMonth - firstDayOfMonth + 1 + i;
-        this.dateElements[i].className = 'day prev-date';
+        this.dateElements[i].className = 'eachDay previousMonthAndYear';
         this.dateElements[i].getElementsByTagName('p')[1].innerText = '';
         this.dateElements[i].date = new Date(this.date.getFullYear(), this.date.getMonth() - 1, daysInPreviousMonth - firstDayOfMonth + 1 + i);
     }
@@ -67,7 +67,7 @@ Calendar.prototype.render = function () {
     // Sets text and class for the days belonging to the current month
     for (let i = 0; i < daysInMonth; i++) {
         this.dateElements[firstDayOfMonth + i].firstChild.innerText = i + 1;
-        this.dateElements[firstDayOfMonth + i].className = 'day';
+        this.dateElements[firstDayOfMonth + i].className = 'eachDay';
         this.dateElements[firstDayOfMonth + i].getElementsByTagName('p')[1].innerText = '';
         this.dateElements[firstDayOfMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth(), i + 1);
 
@@ -79,7 +79,7 @@ Calendar.prototype.render = function () {
     // Sets text and classes for the days belonging to the next month
     for (let i = 0; i < 42 - daysInMonth - firstDayOfMonth; i++) {
         this.dateElements[firstDayOfMonth + daysInMonth + i].firstChild.innerText = i + 1;
-        this.dateElements[firstDayOfMonth + daysInMonth + i].className = 'day next-date';
+        this.dateElements[firstDayOfMonth + daysInMonth + i].className = 'eachDay nextMonthAndYear';
         this.dateElements[firstDayOfMonth + daysInMonth + i].getElementsByTagName('p')[1].innerText = '';
         this.dateElements[firstDayOfMonth + daysInMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth() + 1, i + 1)
     }
@@ -159,7 +159,7 @@ Calendar.prototype.renderHolidays = function (data) {
 Calendar.prototype.setDate = function (date) {
     this.date = date;
     this.render();
-    document.getElementById('help').value = date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
+    document.getElementById('date').value = date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
 
     addtTodoToList(date);
 

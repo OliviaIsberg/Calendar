@@ -15,10 +15,8 @@
 </head>
 
 <body>
-    <header>
-        <div class="header">
-            <h1>kalender för hushållet</h1>
-        </div>
+    <header class="header">
+        <h1>kalender för hushållet</h1>
     </header>
 
     <div class="container-row">
@@ -27,15 +25,15 @@
             <div class="sidebar-todo">
 
                 <div class='date-div'>
-                    <h2 class="displayDay">TODAY</h2>
+                    <h2 class="displayTodaysWeekday">TODAY</h2>
                     <h3 class="displayDate"></h3>
                     <p class="displayTime">00</p>
                 </div>
                 <div class="todo" id="todo">
                     <div class="addTodo">
                         <form class="todo-box">
-                            <input type="text" id="text">
-                            <input type="hidden" id="help">
+                            <input type="text" id="addTodoInputText">
+                            <input type="hidden" id="date">
                             <button id="datebutton" class="submitbutton">
                                 <i class="far fa-plus-square small"></i>
                             </button>
@@ -49,42 +47,40 @@
                 </div>
             </div>
         </aside>
-        <main>
-            <div class="calendar">
-                <div class="month">
-                    <i class="fas fa-angle-left prev"></i>
-                    <div class="date">
-                        <h2 id="displayMonth">januari</h2>
-                        <p id="displayYear"></p>
-                    </div>
-                    <i class="fas fa-angle-right next"></i>
+        <main class="calandar">
+            <div class="month">
+                <i class="fas fa-angle-left previousMonthAndYear"></i>
+                <div class="displayMonthAndYear">
+                    <h2 id="displayMonth">januari</h2>
+                    <p id="displayYear"></p>
                 </div>
-                <div class="weekDays">
-                    <div>
-                        måndag
-                    </div>
-                    <div>
-                        tisdag
-                    </div>
-                    <div>
-                        onsdag
-                    </div>
-                    <div>
-                        torsdag
-                    </div>
-                    <div>
-                        fredag
-                    </div>
-                    <div>
-                        lördag
-                    </div>
-                    <div>
-                        söndag
-                    </div>
+                <i class="fas fa-angle-right nextMonthAndYear"></i>
+            </div>
+            <div class="weekDays">
+                <div>
+                    måndag
                 </div>
-                <div class="days">
+                <div>
+                    tisdag
+                </div>
+                <div>
+                    onsdag
+                </div>
+                <div>
+                    torsdag
+                </div>
+                <div>
+                    fredag
+                </div>
+                <div>
+                    lördag
+                </div>
+                <div>
+                    söndag
+                </div>
+            </div>
+            <div class="allDaysContainer">
 
-                </div>
             </div>
         </main>
         <!-- </div> -->

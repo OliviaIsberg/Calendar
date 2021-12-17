@@ -1,4 +1,3 @@
-
 function Calendar() {
     this.date = new Date();
     this.today = new Date(this.date);
@@ -95,7 +94,6 @@ Calendar.prototype.render = function () {
     // Set the year header
     document.getElementById('displayYear').innerText = this.date.getFullYear();
 
-
     // Request and render holidays
     this.getHolidays();
 }
@@ -136,10 +134,27 @@ Calendar.prototype.getHolidays = function () {
 
             return response.json();
         })
-
+        .then(data => this.renderHolidays(data));
 }
 
+Calendar.prototype.renderHolidays = function (data) {
+    const redDays = data.dagar.filter(day => day['röd dag'] === 'Ja'); // Filter out "red" days from the JSON response
+    const holidays = data.dagar.filter(day => day.hasOwnProperty('helgdag')); // Filter out named holidays from the JSON response
+    const month = new Date(this.date.getFullYear(), this.date.getMonth()); // Construct New date instance representing the first day of the current month
+    const firstDayOfMonth = month.getDay() === 0 ? 6 : month.getDay() - 1; // Date.getDay but with 0-6 representing monday-sunday
 
+    // Loop through the red days and set the class names of the corresponding divs
+    for (let i = 0; i < redDays.length; i++) {
+        let date = new Date(redDays[i].datum);
+        this.dateElements[firstDayOfMonth + date.getDate() - 1].classList.add('holiday');
+    }
+
+    // Loop through the named holidays and populate the corresponding paragraph
+    for (let i = 0; i < holidays.length; i++) {
+        let date = new Date(holidays[i].datum);
+        this.dateElements[firstDayOfMonth + date.getDate() - 1].getElementsByTagName('p')[1].innerText = holidays[i]['helgdag'];
+    }
+}
 
 Calendar.prototype.setDate = function (date) {
     this.date = date;

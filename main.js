@@ -2,13 +2,10 @@
 window.addEventListener('DOMContentLoaded', main);
 
 function main() {
-    const calendar = new Calendar();
     loadFromLS()
-
+    const calendar = new Calendar();
     addEventListeners();
     addtTodoToList(calendar.date);
     deleteTodoFromList();
     startClock();
-    changeToDoWhenButtonPress();
-    showNumberOfTodos();
 }

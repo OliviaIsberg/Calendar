@@ -144,6 +144,7 @@ body{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    position: relative;
 }
   
 .days div:hover:not(.today) {
@@ -202,6 +203,9 @@ border: none;
 .todoCount {
     color: pink;
     font-size: 14px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
 }
 
 .holiday-name {

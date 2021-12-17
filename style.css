@@ -4,8 +4,6 @@ body{
     background-image:url("./moving.gif");
     background-repeat: no-repeat;
     background-size: cover;
-  
-
 }
 
 *{
@@ -27,6 +25,7 @@ body{
     justify-content: center;
     margin: 0;
     padding: 0;
+    cursor: pointer;
    
 }
 
@@ -55,19 +54,11 @@ body{
 .todo{
     margin-top: 1em;
 }
-.addTodo .big{
-    font-size: 5em;
-    cursor: pointer;
-}
+
 .todo-box {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.todo big{
-    color: whitesmoke;
-    
 }
 
 .todo-box .small {
@@ -107,13 +98,15 @@ body{
     cursor: pointer;
     font-size: 2.5em;
 }
-.month  h2 {
+#displayMonth {
     font-size: 2.5em;
     text-transform: uppercase;
     margin-bottom: 1em;
+    cursor: pointer;
 }
-.month p {
+#displayYear {
     font-size: 1.5em;
+    cursor: pointer;
 }
 .weekDays{
     background-color: black;
@@ -125,6 +118,7 @@ body{
     gap: 1px;
     border-bottom: #6b6b6b27;
     border-bottom-style: dotted;
+    cursor: pointer;
     
 }
 .weekDays div {
@@ -230,9 +224,6 @@ border: none;
         font-size: 0.7rem;
 
     }
-    #toggle-button{
-        font-size: 4rem;
-    }
   }
 
   @media screen and (max-width: 950px) {
@@ -256,9 +247,6 @@ border: none;
     }
     .sidebar{
         max-width: 80%;
-    }
-    #toggle-button{
-        font-size: 3rem;
     }
     #text{
         width:90px
@@ -288,9 +276,6 @@ border: none;
     .sidebar{
         max-width: 100%;
         padding: 50px;
-    }
-    #toggle-button{
-        font-size: 3rem;
     }
     #text{
         width: 120px;

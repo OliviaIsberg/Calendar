@@ -12,7 +12,7 @@ function startClock() {
 function renderClock() {
     const currentDate = new Date();
 
-    const weekdayElement = document.querySelector('.displayDay');
+    const weekdayElement = document.querySelector('.displayTodaysWeekday');
     weekdayElement.innerHTML = getWeekDay(currentDate);
 
     let today = new Date();

@@ -7,7 +7,7 @@ function addEventListeners() {
 }
 
 function inputFieldToDoList(e) {
-    let textInput = document.getElementById('text');
+    let textInput = document.getElementById('addTodoInputText');
     e.preventDefault();
 }
 
@@ -42,7 +42,7 @@ function addtTodoToList(date) {
 
         let changeNamnOnToDo = document.createElement('button');
         changeNamnOnToDo.className = 'changeToDo';
-        changeNamnOnToDo.addEventListener('click', function (){
+        changeNamnOnToDo.addEventListener('click', function () {
             let changeToDoInputField = document.createElement('input');
             document.getElementById('todoULDOM').appendChild(changeToDoInputField);
             changeToDoInputField.addEventListener('input', addTodo);
@@ -97,14 +97,14 @@ function loadFromLS() {
 
 
 function addTodo() {
-    let todo = document.getElementById('text');
+    let todo = document.getElementById('addTodoInputText');
     if (todo.value.trim() === '') {
         return;
     }
 
 
     console.log(todo.value);
-    let dateStr = document.getElementById('help').value;
+    let dateStr = document.getElementById('date').value;
     let date = new Date(dateStr);
     if (!todos.hasOwnProperty(dateStr)) {
         todos[dateStr] = [];

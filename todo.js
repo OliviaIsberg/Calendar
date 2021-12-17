@@ -44,11 +44,13 @@ function addtTodoToList(date) {
 
         let changeNamnOnToDo = document.createElement('button');
         changeNamnOnToDo.className = 'changeToDo';
-        changeNamnOnToDo.addEventListener('click', function () {
+        changeNamnOnToDo.addEventListener('click', function (){
             let changeToDoInputField = document.createElement('input');
             document.getElementById('todoULDOM').appendChild(changeToDoInputField);
-            changeToDoInputField.addEventListener('submit', addTodo);
-            addtTodoToList();
+            changeToDoInputField.addEventListener('input', addTodo);
+            document.getElementById('datebutton').addEventListener('submit', addTodo);
+
+
         });
 
         liTodo.appendChild(changeNamnOnToDo);

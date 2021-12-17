@@ -44,7 +44,12 @@ function addtTodoToList(date) {
 
         let changeNamnOnToDo = document.createElement('button');
         changeNamnOnToDo.className = 'changeToDo';
-        changeNamnOnToDo.addEventListener('click', changeToDoWhenButtonPress);
+        changeNamnOnToDo.addEventListener('click', function () {
+            let changeToDoInputField = document.createElement('input');
+            document.getElementById('todoULDOM').appendChild(changeToDoInputField);
+            changeToDoInputField.addEventListener('submit', addTodo);
+            addtTodoToList();
+        });
 
         liTodo.appendChild(changeNamnOnToDo);
         changeNamnOnToDo.innerText = 'Ändra';
@@ -55,6 +60,9 @@ function addtTodoToList(date) {
     }
 }
 
+/**
+ * Changes the title of the todos when the button "ändra" is pressed
+ */
 function changeToDoWhenButtonPress() {
     const listItem = document.querySelector('.list-item')
     if (!listItem) {
@@ -62,6 +70,10 @@ function changeToDoWhenButtonPress() {
     }
 
     addtTodoToList();
+
+
+
+
 }
 
 /**
@@ -73,7 +85,9 @@ function saveToLs(keyname, keyvalue) {
 
 }
 
-
+/**
+ * Get content from Localstorage
+ */
 function loadFromLS() {
     const todoStr = localStorage.getItem('todo');
     if (todoStr) {
@@ -82,7 +96,6 @@ function loadFromLS() {
 }
 
 
-//funktionen som gör så att ett nytt list-element skapas.
 function addTodo() {
     let todo = document.getElementById('text');
     if (todo.value.trim() === '') {
@@ -119,7 +132,7 @@ function deleteTodoFromList() {
             let todo = this.parentNode;
             todo.style.display = "none";
             let index = e.target.getAttribute('value');// title = ex "baka en tårta"
-            todos.splice(index, 1);
+            // todos.splice(index, 1);
 
         }
     }

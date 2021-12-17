@@ -10,9 +10,7 @@ body{
 
 *{
     font-family: Optima;
-
 }
-
 
 .header {
     display: flex;
@@ -28,15 +26,12 @@ body{
     margin: 0;
     padding: 0;
     cursor: pointer;
-   
 }
-
-
 
 .sidebar{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding-top: 9rem;
     align-items: center;
     text-align: center;
     background-color:rgba(3, 1, 1, 0.384) ;
@@ -52,6 +47,7 @@ body{
     font-size: 1.5em;
     
 }
+
 .containerForTodo{
     margin-top: 1em;
 }
@@ -75,7 +71,6 @@ body{
     color: whitesmoke;
 }
 
-
 .containerForMonthAndYear{
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.336);
@@ -98,16 +93,19 @@ body{
 .previousMonthAndYear-opacity, .nextMonthAndYear-opacity {
     opacity: 0.5;
 }
+
 #displayMonth {
     font-size: 2.5em;
     text-transform: uppercase;
     margin-bottom: 1em;
     cursor: pointer;
 }
+
 #displayYear {
     font-size: 1.5em;
     cursor: pointer;
 }
+
 .weekDays{
     background-color: black;
     padding: 0 .4em;
@@ -121,12 +119,12 @@ body{
     cursor: pointer;
     
 }
+
 .weekDays div {
     font-size: 1.2em;
     letter-spacing: .1em;
     text-align: center;
     padding: 1em;
-   
 }
 
 .allDaysContainer{
@@ -136,6 +134,7 @@ body{
     grid-template-columns: repeat(7, 1fr);
     color: rgb(255, 255, 255);
 }
+
 .allDaysContainer .eachDay {
     font-size: 1.4rem;
     margin: 0.3rem;
@@ -151,7 +150,6 @@ body{
     background-color: #adb3ae50;
 }
 
-  
 .today {
     background-color: #8f8f8fb7;
 }
@@ -162,10 +160,10 @@ body{
       border-color: rgba(0, 0, 0, 0.808);
       background-color: rgba(59, 58, 58, 0.274);
 }
+
 .active.todo-list {
       visibility: visible;
 }
-
 
 .formForTodo.hide {
     visibility: visible;
@@ -181,15 +179,14 @@ body{
 }
 
 .deleteTodo{
-background-color: rgb(165, 2, 2);
-color:white;
-text-align: center;
-border-radius: 200px;
-padding: 4px;
-font-weight: bold;
-margin:20px;
-border: none;
-
+    background-color: rgb(165, 2, 2);
+    color:white;
+    text-align: center;
+    border-radius: 200px;
+    padding: 4px;
+    font-weight: bold;
+    margin:20px;
+    border: none;
 }
 
 .holiday{
@@ -216,21 +213,25 @@ border: none;
     margin: 0;
 }
 
-
-
 @media screen and (max-width: 1200px) {
     .weekDays div {
         font-size: 0.8rem;
     }
+
     .displayTodaysWeekdays{
         font-size: 1.5rem;
     }
+
     .header{
         font-size: 0.8rem;
     }
+
     .containerForMonthAndYear{
         font-size: 0.7rem;
+    }
 
+    .container {
+        min-width: 100%;
     }
   }
 
@@ -238,59 +239,68 @@ border: none;
     .weekDays div {
         font-size: 0.6rem;
     }
+
     .displayTodaysWeekday{
         font-size: 1rem;
     }
+
     .header{
         font-size: 0.6rem;
     }
+
     .containerForMonthAndYear{
         font-size: 0.5rem;
-
     }
+
     .eachDay{
         font-size: 0.8rem;
         padding: 0.5rem;
-        
     }
+
     .sidebar{
         max-width: 80%;
     }
+
     #addTodoInputText{
         width:90px
     }
   }
 
-
-  @media screen and (max-width: 620px) {
+@media screen and (max-width: 620px) {
     .weekDays div {
         font-size: 0.6rem;
     }
+
     .displayTodaysWeekday{
         font-size: 2rem;
     }
+
     .header{
         font-size: 0.6rem;
     }
+
     .containerForMonthAndYear{
         font-size: 0.5rem;
-
     }
+
     .eachDay{
         font-size: 0.8rem;
         padding: 0.5rem;
-        
     }
+
     .sidebar{
         min-width: 100%;
         padding: 50px;
     }
+
     #addTodoInputTexts{
         width: 120px;
     }
-    .calandar{
+
+    .calendar{
         display: none;
     }
+
     .todo-list{
         min-height: 250px;
     }

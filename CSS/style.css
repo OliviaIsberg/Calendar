@@ -7,6 +7,9 @@ body{
     background-image:url("../img/moving.gif");
     background-repeat: no-repeat;
     background-size: cover;
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 *{
@@ -163,9 +166,8 @@ body{
 
 .todo-list {
       max-height: 310px;
-      border: solid;
-      border-color: rgba(0, 0, 0, 0.808);
       background-color: rgba(59, 58, 58, 0.274);
+      overflow-y: scroll;
 }
 
 .active.todo-list {
@@ -261,7 +263,21 @@ body{
 
     .eachDay{
         font-size: 0.8rem;
-        padding: 0.5rem;
+        margin: 0;
+    }
+
+    .todoCount {
+        font-size: 12px;
+        top: 0;
+        right: 0;
+    }
+
+    .date {
+        font-size: 16px;
+    }
+
+    .holiday-name {
+        font-size: 12px;
     }
 
     .sidebar{
@@ -274,6 +290,9 @@ body{
   }
 
 @media screen and (max-width: 620px) {
+    body {
+        overflow: visible;
+    }
     .weekDays div {
         font-size: 0.6rem;
     }

@@ -59,7 +59,7 @@ Calendar.prototype.render = function () {
     // Sets text and classes for the days belonging to the previous month
     for (let i = 0; i < firstDayOfMonth; i++) {
         this.dateElements[i].firstChild.innerText = daysInPreviousMonth - firstDayOfMonth + 1 + i;
-        this.dateElements[i].className = 'eachDay previousMonthAndYear';
+        this.dateElements[i].className = 'eachDay previousMonthAndYear-opacity';
         this.dateElements[i].getElementsByTagName('p')[1].innerText = '';
         this.dateElements[i].date = new Date(this.date.getFullYear(), this.date.getMonth() - 1, daysInPreviousMonth - firstDayOfMonth + 1 + i);
     }
@@ -79,7 +79,7 @@ Calendar.prototype.render = function () {
     // Sets text and classes for the days belonging to the next month
     for (let i = 0; i < 42 - daysInMonth - firstDayOfMonth; i++) {
         this.dateElements[firstDayOfMonth + daysInMonth + i].firstChild.innerText = i + 1;
-        this.dateElements[firstDayOfMonth + daysInMonth + i].className = 'eachDay nextMonthAndYear';
+        this.dateElements[firstDayOfMonth + daysInMonth + i].className = 'eachDay nextMonthAndYear-opacity';
         this.dateElements[firstDayOfMonth + daysInMonth + i].getElementsByTagName('p')[1].innerText = '';
         this.dateElements[firstDayOfMonth + daysInMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth() + 1, i + 1)
     }

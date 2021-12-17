@@ -195,9 +195,17 @@ border: none;
 
 }
 
+.holiday{
+    color: red;
+}
+
 .todoCount {
     color: pink;
     font-size: 14px;
+}
+
+.holiday-name {
+    font-size: 16px;
 }
 
 .day{

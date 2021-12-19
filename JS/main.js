@@ -5,7 +5,6 @@ function main() {
     loadFromLS()
     const calendar = new Calendar();
     addEventListeners();
-    addtTodoToList(calendar.date);
-    deleteTodoFromList();
+    addTodoToList(calendar.date);
     startClock();
 }

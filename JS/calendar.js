@@ -161,7 +161,7 @@ Calendar.prototype.setDate = function (date) {
     this.render();
     document.getElementById('date').value = date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
 
-    addtTodoToList(date);
+    addTodoToList(date);
 
     //showTodos(date);
 }

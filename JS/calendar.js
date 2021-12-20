@@ -1,5 +1,27 @@
+/**
+ * Constructs a new Calendar object
+ * 
+ * @class Calendar
+ * @classdesc Self-contained Calendar object
+ * 
+ * @property {Date} date - date representing the selected date
+ * @property {Date} today - date representing today
+ * @property {HTMLDivElement[]} dateElements - array of div elements representing the dates of the month
+ * @this Calendar
+ */
+
 function Calendar() {
+    /** 
+     * @type {Date}
+     * date representing the selected date
+     */
+
     this.date = new Date();
+    /**
+     * @type {Date}
+     * date representing today
+     */
+
     this.today = new Date(this.date);
 
     const dayContainer = document.querySelector('.allDaysContainer');
@@ -7,6 +29,10 @@ function Calendar() {
     // Create a reference to "this" calendar object for use in event listener
     const calendar = this;
 
+    /** 
+     * @type {HTMLDivElement[]}
+     * array of div elements representing the dates of the month
+     */
     this.dateElements = new Array(42);
     for (let i = 0; i < this.dateElements.length; i++) {
         // Create div-element for each day of the month
@@ -50,6 +76,10 @@ function Calendar() {
 Calendar.Months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'];
 Calendar.Days = ['Söndag', 'Måndag', 'Tisdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lördag'];
 
+/** @namespace Calendar */
+/**
+ * Renders the calendar
+ */
 Calendar.prototype.render = function () {
     const month = new Date(this.date.getFullYear(), this.date.getMonth()); // Construct New date instance representing the first day of the current month
     const firstDayOfMonth = month.getDay() === 0 ? 6 : month.getDay() - 1; // Date.getDay but with 0-6 representing monday-sunday
@@ -98,7 +128,10 @@ Calendar.prototype.render = function () {
     this.getHolidays();
 }
 
-
+/** @namespace Calendar */
+/**
+ * Highlight todays date and week day
+ */
 Calendar.prototype.highlightToday = function () {
     const month = new Date(this.date.getFullYear(), this.date.getMonth()); // Construct New date instance representing the first day of the current month
     const firstDayOfMonth = month.getDay() === 0 ? 6 : month.getDay() - 1; // Date.getDay but with 0-6 representing monday-sunday
@@ -125,6 +158,11 @@ Calendar.prototype.highlightToday = function () {
     }
 }
 
+/** @namespace Calendar */
+/**
+ * Fetches holidays from sholiday.faboul.se and calls Calendar.renderHolidays
+ */
+
 Calendar.prototype.getHolidays = function () {
     // Constructs uri to request the "red" days and named holidays for the active month from sholiday.faboul.se
     const uri = 'https://sholiday.faboul.se/dagar/v2.1/' + this.date.getFullYear() + '/' + (this.date.getMonth() + 1).toString().padStart(2, '0');
@@ -139,6 +177,10 @@ Calendar.prototype.getHolidays = function () {
         .then(data => this.renderHolidays(data));
 }
 
+/** @namespace Calendar */
+/**
+ * Render the holidays of the current month
+ */
 Calendar.prototype.renderHolidays = function (data) {
     const redDays = data.dagar.filter(day => day['röd dag'] === 'Ja'); // Filter out "red" days from the JSON response
     const holidays = data.dagar.filter(day => day.hasOwnProperty('helgdag')); // Filter out named holidays from the JSON response
@@ -157,13 +199,14 @@ Calendar.prototype.renderHolidays = function (data) {
         this.dateElements[firstDayOfMonth + date.getDate() - 1].getElementsByTagName('p')[1].innerText = holidays[i]['helgdag'];
     }
 }
-
+/** @namespace Calendar */
+/**
+ * Sets the active date
+ */
 Calendar.prototype.setDate = function (date) {
     this.date = date;
     this.render();
     document.getElementById('date').value = date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
 
     addTodoToList(date);
-
-    //showTodos(date);
 }

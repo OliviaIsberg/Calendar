@@ -1,3 +1,6 @@
+/**
+ * AddEventListeners for input field for todo
+ */
 function addEventListeners() {
     let form = document.querySelector('form');
     form.addEventListener('submit', inputFieldToDoList);
@@ -6,16 +9,13 @@ function addEventListeners() {
 
 }
 
+/**
+ * Prevent form submit
+ * @param e
+ */
 function inputFieldToDoList(e) {
     let textInput = document.getElementById('addTodoInputText');
     e.preventDefault();
-}
-
-function toggleForm() {
-    const form = document.getElementsByClassName('formForTodo')[0];
-    form.classList.toggle('hide');
-
-
 }
 
 /**
@@ -27,7 +27,10 @@ function dateToString(date) {
     return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
 }
 
-//funktionen som skapar list-elementet.
+/**
+ * Creates li, buttons, span element
+ * @param date
+ */
 function addTodoToList(date) {
     const key = dateToString(date);
 
@@ -54,7 +57,6 @@ function addTodoToList(date) {
 
         const removeButton = document.createElement('button')
         removeButton.className = "fas fa-trash-alt"
-        // removeButton.innerText = 'X'
         removeButton.classList.add('deleteTodo')
         removeButton.addEventListener('click', deleteTodoFromList)
 
@@ -113,17 +115,15 @@ function editTodo(editButtonEvent) {
     });
 }
 
-/**
- * Changes the title of the todos when the button "ändra" is pressed
- */
-function changeToDoWhenButtonPress() {
-    const listItem = document.querySelector('.list-item');
-    if (!listItem) {
-        return;
-    }
 
-    addTodoToList();
-}
+// function changeToDoWhenButtonPress() {
+//     const listItem = document.querySelector('.list-item');
+//     if (!listItem) {
+//         return;
+//     }
+//
+//     addTodoToList();
+// }
 
 /**
  * Save content to Localstorage
@@ -142,6 +142,9 @@ function loadFromLS() {
     }
 }
 
+/**
+ * Adds todo with an key to identify the object
+ */
 function addTodo() {
     let todo = document.getElementById('addTodoInputText');
     if (todo.value.trim() === '') {
@@ -170,7 +173,10 @@ function generateKey() {
     return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString();
 }
 
-// en funktion som tar bort "todo" från listan samt tar bort onjektet från arrayen. från arrayen.
+/**
+ * Deletes the todo from the todo list and localstorage
+ * @param event
+ */
 function deleteTodoFromList(event) {
     let todo = event.target.parentNode;
     const dateString = document.getElementById('date').value;
@@ -180,13 +186,20 @@ function deleteTodoFromList(event) {
     todo.remove();
 }
 
+/**
+ * Get the number of todos to the calender
+ * @param date
+ * @returns {*|number}
+ */
 function getNumberOfTodos(date) {
     const key = dateToString(date);
 
     return todos.hasOwnProperty(key) ? todos[key].length : 0;
 }
 
-
-
+/**
+ * State
+ * @type {{Object}}
+ */
 let todos = {};
 

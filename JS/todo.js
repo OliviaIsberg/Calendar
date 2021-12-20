@@ -58,12 +58,6 @@ function addTodoToList(date) {
         removeButton.classList.add('deleteTodo')
         removeButton.addEventListener('click', deleteTodoFromList)
 
-        const removeButton = document.createElement('button');
-        removeButton.innerText = 'X';
-        removeButton.classList.add('deleteTodo');
-        removeButton.addEventListener('click', deleteTodoFromList);
-
-
         liTodo.append(title, removeButton);
         liTodo.className = "list-item";
 
@@ -72,7 +66,7 @@ function addTodoToList(date) {
         changeNamnOnToDo.addEventListener('click', editTodo);
 
         liTodo.appendChild(changeNamnOnToDo);
-        changeNamnOnToDo.className ="fas fa-edit";
+        changeNamnOnToDo.className = "fas fa-edit";
         //changeNamnOnToDo.innerText = 'Ändra';
 
         // lägg till li-elementet i UL'en

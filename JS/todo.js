@@ -13,7 +13,7 @@ function inputFieldToDoList(e) {
 
 function toggleForm() {
     const form = document.getElementsByClassName('formForTodo')[0];
-    form.classList.toggle('hide')
+    form.classList.toggle('hide');
 
 
 }
@@ -24,7 +24,7 @@ function toggleForm() {
  * @returns {string}
  */
 function dateToString(date) {
-    return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0')
+    return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
 }
 
 //funktionen som skapar list-elementet.
@@ -36,7 +36,7 @@ function addTodoToList(date) {
     ulTodo.innerHTML = "";
 
     if (!todos.hasOwnProperty(key)) {
-        return
+        return;
     }
 
     // loopa igenom arrayen med "todo" objekten
@@ -45,19 +45,19 @@ function addTodoToList(date) {
         //skapar ett list-element ("Li") för varje  objekt "todo" ur arrayen todos och skriver ut "title" ur objektet i DOMen. samt
         // lägger till en knapp som har funktion on click.
         const liTodo = document.createElement("li");
-        liTodo.setAttribute('key', todo.key)
+        liTodo.setAttribute('key', todo.key);
 
-        const title = document.createElement('span')
-        title.classList.add('title')
-        title.innerText = todo.title
+        const title = document.createElement('span');
+        title.classList.add('title');
+        title.innerText = todo.title;
 
-        const removeButton = document.createElement('button')
-        removeButton.innerText = 'X'
-        removeButton.classList.add('deleteTodo')
-        removeButton.addEventListener('click', deleteTodoFromList)
+        const removeButton = document.createElement('button');
+        removeButton.innerText = 'X';
+        removeButton.classList.add('deleteTodo');
+        removeButton.addEventListener('click', deleteTodoFromList);
 
-        liTodo.append(title, removeButton)
-        liTodo.className = "list-item"
+        liTodo.append(title, removeButton);
+        liTodo.className = "list-item";
 
         let changeNamnOnToDo = document.createElement('button');
         changeNamnOnToDo.className = 'changeToDo';
@@ -68,7 +68,6 @@ function addTodoToList(date) {
 
         // lägg till li-elementet i UL'en
         ulTodo.append(liTodo);
-
     }
 }
 
@@ -78,40 +77,40 @@ function addTodoToList(date) {
  */
 function editTodo(editButtonEvent) {
     // Find the parent li element to the edit button
-    const todoLi = editButtonEvent.target.parentElement
+    const todoLi = editButtonEvent.target.parentElement;
     // Find the title element of the li item
-    const titleSpan = todoLi.querySelector('span.title')
+    const titleSpan = todoLi.querySelector('span.title');
     // Hide the title element
-    titleSpan.style.visibility = 'hidden'
+    titleSpan.style.visibility = 'hidden';
     // Create an input field to change the title
     let changeToDoInputField = document.createElement('input');
     // Set the text of the input to the title
-    changeToDoInputField.value = titleSpan.textContent
+    changeToDoInputField.value = titleSpan.textContent;
     // Add the input field to the start of the li element
-    todoLi.prepend(changeToDoInputField)
+    todoLi.prepend(changeToDoInputField);
     // Focus the cursor on the input field
-    changeToDoInputField.focus()
+    changeToDoInputField.focus();
     // Disable the edit button
-    editButtonEvent.target.setAttribute('disabled', 'disabled')
+    editButtonEvent.target.setAttribute('disabled', 'disabled');
 
     // Add an event listener for when the input field is no longer selected
     changeToDoInputField.addEventListener('blur', () => {
         // Update the title to the value of the input field
-        titleSpan.textContent = changeToDoInputField.value
+        titleSpan.textContent = changeToDoInputField.value;
         // Show the title element
-        titleSpan.style.visibility = 'visible'
+        titleSpan.style.visibility = 'visible';
         // Enable the edit button
-        editButtonEvent.target.removeAttribute('disabled')
+        editButtonEvent.target.removeAttribute('disabled');
 
         // Find and update the value of the todo in the todos object
-        const dateString = document.getElementById('date').value
-        const index = todos[dateString].findIndex(item => item.key === todoLi.getAttribute('key'))
-        todos[dateString][index].title = changeToDoInputField.value
+        const dateString = document.getElementById('date').value;
+        const index = todos[dateString].findIndex(item => item.key === todoLi.getAttribute('key'));
+        todos[dateString][index].title = changeToDoInputField.value;
 
         // Update localStorage
-        saveToLs(todos)
+        saveToLs(todos);
         // Remove the input field
-        changeToDoInputField.remove()
+        changeToDoInputField.remove();
     });
 }
 
@@ -119,7 +118,7 @@ function editTodo(editButtonEvent) {
  * Changes the title of the todos when the button "ändra" is pressed
  */
 function changeToDoWhenButtonPress() {
-    const listItem = document.querySelector('.list-item')
+    const listItem = document.querySelector('.list-item');
     if (!listItem) {
         return;
     }
@@ -130,7 +129,6 @@ function changeToDoWhenButtonPress() {
 /**
  * Save content to Localstorage
  */
-
 function saveToLs(keyvalue) {
     localStorage.setItem('todo', JSON.stringify(keyvalue));
 }
@@ -163,8 +161,6 @@ function addTodo() {
 
     addTodoToList(date);
     todo.value = '';
-
-
 }
 
 /**
@@ -172,17 +168,17 @@ function addTodo() {
  * @returns {string}
  */
 function generateKey() {
-    return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString()
+    return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString();
 }
 
 // en funktion som tar bort "todo" från listan samt tar bort onjektet från arrayen. från arrayen.
 function deleteTodoFromList(event) {
     let todo = event.target.parentNode;
-    const dateString = document.getElementById('date').value
-    const index = todos[dateString].findIndex(item => item.key === todo.getAttribute('key'))
-    todos[dateString].splice(index, 1)
+    const dateString = document.getElementById('date').value;
+    const index = todos[dateString].findIndex(item => item.key === todo.getAttribute('key'));
+    todos[dateString].splice(index, 1);
     saveToLs(todos);
-    todo.remove()
+    todo.remove();
 }
 
 function getNumberOfTodos(date) {

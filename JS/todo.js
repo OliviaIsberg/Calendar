@@ -18,6 +18,16 @@ function inputFieldToDoList(e) {
     e.preventDefault();
 }
 
+
+// function toggleForm() {
+//     const form = document.getElementsByClassName('formForTodo')[0];
+//     form.classList.toggle('hide');
+
+
+// }
+
+
+
 /**
  * Convert a Date object to a string 'yyyy-mm-dd'
  * @param {Date} date
@@ -86,7 +96,7 @@ function editTodo(editButtonEvent) {
     // Find the title element of the li item
     const titleSpan = todoLi.querySelector('span.title');
     // Hide the title element
-    titleSpan.style.visibility = 'hidden';
+    titleSpan.style.display = 'none';
     // Create an input field to change the title
     let changeToDoInputField = document.createElement('input');
     // Set the text of the input to the title
@@ -101,7 +111,7 @@ function editTodo(editButtonEvent) {
         // Update the title to the value of the input field
         titleSpan.textContent = changeToDoInputField.value;
         // Show the title element
-        titleSpan.style.visibility = 'visible';
+        titleSpan.style.display = 'inline';
 
         // Find and update the value of the todo in the todos object
         const dateString = document.getElementById('date').value;

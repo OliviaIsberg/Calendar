@@ -413,16 +413,19 @@ margin: auto;
 
         display: none;
       }
-    
+      #calendar{
+
+        display:none;
+    }
         .calendar{
             position: absolute;
             justify-self: center;
             z-index: 1;
             max-width: 55vh;
             contain: content;
-            height: 55vh;
+            margin-top: -1.2rem;
         }
-    
+   
         .todo-list{
             min-height: 250px;
         }
@@ -462,6 +465,11 @@ margin: auto;
 
     #calendarPhone{
         display: block;
+        color:white;
+        background-color: darkcyan;
+        border: none;
+        margin: 5px;
+       
 
   } 
  
@@ -486,10 +494,14 @@ margin: auto;
     .calendar{
         position: absolute;
         justify-self: center;
-        z-index: 1;
         max-width: 48vh;
         contain: content;
         height: 40vh;
+    }
+
+    #calendar{
+
+        display:none;
     }
 
     .todo-list{

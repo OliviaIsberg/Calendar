@@ -5,6 +5,8 @@ function addEventListeners() {
     let form = document.querySelector('form');
     form.addEventListener('submit', inputFieldToDoList);
     form.addEventListener('submit', addTodo);
+    let calenderbutton = document.getElementById("calendarPhone")
+    calenderbutton.addEventListener('click', toggleCalander)
 
 
 }
@@ -213,3 +215,27 @@ function getNumberOfTodos(date) {
  */
 let todos = {};
 
+function toggleCalander(){
+
+    const calendar = document.getElementById('calendar');
+    const buttonText = document.getElementById("calendarPhone");
+   
+      if (calendar.style.display != "none") {
+        calendar.style.display = "none";
+        buttonText.textContent ="show calendar"
+      } else {
+        calendar.style.display = "block";
+        buttonText.textContent ="hide calendar"
+      }
+    
+}
+
+
+function bigScreen(){
+    const calendar = document.getElementById("calendar")
+    if ( window.matchMedia("(min-width: 630px)")){
+        calendar.style.display = null
+        
+    
+}
+}

@@ -81,7 +81,7 @@ Calendar.prototype.render = function () {
         this.dateElements[firstDayOfMonth + daysInMonth + i].firstChild.innerText = i + 1;
         this.dateElements[firstDayOfMonth + daysInMonth + i].className = 'eachDay nextMonthAndYear-opacity';
         this.dateElements[firstDayOfMonth + daysInMonth + i].getElementsByTagName('p')[1].innerText = '';
-        this.dateElements[firstDayOfMonth + daysInMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth() + 1, i + 1)
+        this.dateElements[firstDayOfMonth + daysInMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth() + 1, i + 1);
     }
 
 
@@ -110,12 +110,14 @@ Calendar.prototype.highlightToday = function () {
         elements[i].style.color = '';
     }
 
+    this.dateElements[firstDayOfMonth + this.date.getDate() - 1].classList.add('active-day');
+
     // Highlight todays date and week day
     if (
         this.date.getFullYear() === this.today.getFullYear() &&
         this.date.getMonth() === this.today.getMonth()
     ) {
-        this.dateElements[firstDayOfMonth + this.date.getDate() - 1].classList.add('today');
+        this.dateElements[firstDayOfMonth + this.today.getDate() - 1].classList.add('today');
 
         let day = this.today.getDay() === 0 ? 6 : this.today.getDay() - 1;
         let todayCol = elements[day];

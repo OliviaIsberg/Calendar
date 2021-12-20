@@ -156,8 +156,13 @@ body{
     position: relative;
 }
   
+
+.active-day {
+    border: 1px solid whitesmoke;
+}
+
 .allDaysContainer .eachDay:hover:not(.today) {
-    background-color: #adb3ae50;
+    background-color: #8f8f8fb7;
 }
 
 .today {

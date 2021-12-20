@@ -93,8 +93,6 @@ function editTodo(editButtonEvent) {
     todoLi.prepend(changeToDoInputField);
     // Focus the cursor on the input field
     changeToDoInputField.focus();
-    // Disable the edit button
-    editButtonEvent.target.setAttribute('disabled', 'disabled');
 
     // Add an event listener for when the input field is no longer selected
     changeToDoInputField.addEventListener('blur', () => {
@@ -102,8 +100,6 @@ function editTodo(editButtonEvent) {
         titleSpan.textContent = changeToDoInputField.value;
         // Show the title element
         titleSpan.style.visibility = 'visible';
-        // Enable the edit button
-        editButtonEvent.target.removeAttribute('disabled');
 
         // Find and update the value of the todo in the todos object
         const dateString = document.getElementById('date').value;

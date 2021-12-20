@@ -81,7 +81,7 @@ Calendar.prototype.render = function () {
         this.dateElements[firstDayOfMonth + daysInMonth + i].firstChild.innerText = i + 1;
         this.dateElements[firstDayOfMonth + daysInMonth + i].className = 'eachDay nextMonthAndYear-opacity';
         this.dateElements[firstDayOfMonth + daysInMonth + i].getElementsByTagName('p')[1].innerText = '';
-        this.dateElements[firstDayOfMonth + daysInMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth() + 1, i + 1)
+        this.dateElements[firstDayOfMonth + daysInMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth() + 1, i + 1);
     }
 
 

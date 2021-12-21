@@ -15,14 +15,18 @@ function Calendar() {
      * @type {Date}
      * date representing the selected date
      */
-
     this.date = new Date();
+
     /**
      * @type {Date}
      * date representing today
      */
-
     this.today = new Date(this.date);
+
+    /**
+     * 
+     */
+    this.isDateSelected = true;
 
     const dayContainer = document.querySelector('.allDaysContainer');
 
@@ -70,7 +74,7 @@ function Calendar() {
         this.render();
     });
 
-    this.render();
+    this.render(true);
 }
 
 Calendar.Months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'];
@@ -114,9 +118,11 @@ Calendar.prototype.render = function () {
         this.dateElements[firstDayOfMonth + daysInMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth() + 1, i + 1);
     }
 
-
     // Highlight todays date and week day
     this.highlightToday();
+
+    // Highlight the active date
+    this.highlightActiveDate();
 
     // Set the month header
     document.getElementById('displayMonth').innerText = Calendar.Months[this.date.getMonth()];
@@ -143,8 +149,6 @@ Calendar.prototype.highlightToday = function () {
         elements[i].style.color = '';
     }
 
-    this.dateElements[firstDayOfMonth + this.date.getDate() - 1].classList.add('active-day');
-
     // Highlight todays date and week day
     if (
         this.date.getFullYear() === this.today.getFullYear() &&
@@ -157,6 +161,24 @@ Calendar.prototype.highlightToday = function () {
         todayCol.style.color = "darkcyan";
     }
 }
+
+/** @namespace Calendar */
+/**
+ * Highlight todays date and week day
+ */
+Calendar.prototype.highlightActiveDate = function () {
+    const month = new Date(this.date.getFullYear(), this.date.getMonth()); // Construct New date instance representing the first day of the current month
+    const firstDayOfMonth = month.getDay() === 0 ? 6 : month.getDay() - 1; // Date.getDay but with 0-6 representing monday-sunday
+
+    for (let i = 0; i < this.dateElements.length; i++) {
+        this.dateElements[i].classList.remove('active-day');
+    }
+
+    if (this.isDateSelected) {
+        this.dateElements[firstDayOfMonth + this.date.getDate() - 1].classList.add('active-day');
+    }
+}
+
 
 /** @namespace Calendar */
 /**
@@ -199,14 +221,41 @@ Calendar.prototype.renderHolidays = function (data) {
         this.dateElements[firstDayOfMonth + date.getDate() - 1].getElementsByTagName('p')[1].innerText = holidays[i]['helgdag'];
     }
 }
+
+/** @namespace Calendar */
+/**
+ * Update the todo count for the selected date
+ */
+Calendar.prototype.updateTodoCount = function (data) {
+    const month = new Date(this.date.getFullYear(), this.date.getMonth()); // Construct New date instance representing the first day of the current month
+    const firstDayOfMonth = month.getDay() === 0 ? 6 : month.getDay() - 1; // Date.getDay but with 0-6 representing monday-sunday
+
+    let numberOfTodos = getNumberOfTodos(this.dateElements[firstDayOfMonth + this.date.getDate() - 1].date);
+    this.dateElements[firstDayOfMonth + this.date.getDate() - 1].getElementsByClassName('todoCount')[0].innerText = numberOfTodos;
+}
+
+
 /** @namespace Calendar */
 /**
  * Sets the active date
  */
 Calendar.prototype.setDate = function (date) {
+    const oldDate = this.date;
     this.date = date;
-    this.render();
-    document.getElementById('date').value = date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
+
+    if (date.getTime() === new Date(oldDate.getFullYear(), oldDate.getMonth(), oldDate.getDate()).getTime()) {
+        this.isDateSelected = !this.isDateSelected;
+    } else {
+        this.isDateSelected = true;
+        document.getElementById('date').value = date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
+    }
+
+    if (date.getFullYear() === oldDate.getFullYear() && date.getMonth() === oldDate.getMonth()) {
+        this.highlightActiveDate();
+    } else {
+        this.render();
+    }
+
 
     addTodoToList(date);
 }

@@ -4,8 +4,8 @@
 function addEventListeners() {
     let form = document.querySelector('form');
     form.addEventListener('submit', addTodo);
-    let calenderbutton = document.getElementById("calendarPhone")
-    calenderbutton.addEventListener('click', toggleCalander)
+    let calendarbutton = document.getElementById("calendarPhone")
+    calendarbutton.addEventListener('click', toggleCalendar);
 }
 
 /**
@@ -53,13 +53,12 @@ function addTodoToList(date) {
         liTodo.append(title, removeButton);
         liTodo.className = "list-item";
 
-        let changeNamnOnToDo = document.createElement('button');
-        changeNamnOnToDo.className = 'changeToDo';
-        changeNamnOnToDo.addEventListener('click', editTodo);
+        let changeNameOnToDo = document.createElement('button');
+        changeNameOnToDo.className = 'changeToDo';
+        changeNameOnToDo.addEventListener('click', editTodo);
 
-        liTodo.appendChild(changeNamnOnToDo);
-        changeNamnOnToDo.className = "fas fa-edit";
-        //changeNamnOnToDo.innerText = 'Ändra';
+        liTodo.appendChild(changeNameOnToDo);
+        changeNameOnToDo.className = "fas fa-edit";
 
         // lägg till li-elementet i UL'en
         ulTodo.append(liTodo);
@@ -183,7 +182,7 @@ function getNumberOfTodos(date) {
  */
 let todos = {};
 
-function toggleCalander() {
+function toggleCalendar() {
 
     const calendar = document.getElementById('calendar');
     const buttonText = document.getElementById("calendarPhone");

@@ -12,8 +12,8 @@ Kalendern är responsiv, den är gömd på mindre skrämar och det finns en knap
 
 Grupparbetet är gjord utav:
 
-Anna Özmehak[](https://github.com/A-Ozmehak)
-Esther Reichmann[](https://github.com/ezzequ)
-Olivia Isberg[](https://github.com/OliviaIsberg)
+[Anna Özmehak](https://github.com/A-Ozmehak)
+[Esther Reichmann](https://github.com/ezzequ)
+[Olivia Isberg](https://github.com/OliviaIsberg)
 
-DEMO[](https://oliviaisberg.github.io/Calendar/)
+[DEMO](https://oliviaisberg.github.io/Calendar/)

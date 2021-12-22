@@ -130,9 +130,6 @@
 /* calander becomes dropdown*/
 
 @media screen and (max-width: 630px) {
-    body {
-        overflow: visible;
-    }
     .weekDays div {
         font-size: 0.6rem;
     }

@@ -215,27 +215,27 @@ function getNumberOfTodos(date) {
  */
 let todos = {};
 
-function toggleCalander(){
+function toggleCalander() {
 
     const calendar = document.getElementById('calendar');
     const buttonText = document.getElementById("calendarPhone");
-   
-      if (calendar.style.display != "none") {
+
+    if (calendar.style.display != "none") {
         calendar.style.display = "none";
-        buttonText.textContent ="show calendar"
-      } else {
+        buttonText.textContent = "show calendar"
+    } else {
         calendar.style.display = "block";
-        buttonText.textContent ="hide calendar"
-      }
-    
+        buttonText.textContent = "hide calendar"
+    }
+
 }
 
 
-function bigScreen(){
+function bigScreen() {
     const calendar = document.getElementById("calendar")
-    if ( window.matchMedia("(min-width: 630px)")){
+    if (window.matchMedia("(min-width: 630px)")) {
         calendar.style.display = null
-        
-    
-}
+
+
+    }
 }

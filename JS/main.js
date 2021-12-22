@@ -1,4 +1,3 @@
-//window.addEventListener('load', main);
 window.addEventListener('DOMContentLoaded', main);
 window.addEventListener('resize', bigScreen);
 

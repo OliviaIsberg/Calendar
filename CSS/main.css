@@ -1,5 +1,4 @@
-
-*{
+* {
     font-family: Optima;
 }
 
@@ -27,6 +26,7 @@ body {
     font-size: 50px;
 }
 
+/* continer for todos and calendar */
 .container{
     display: flex;
     flex-direction: row;

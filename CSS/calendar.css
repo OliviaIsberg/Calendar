@@ -1,3 +1,4 @@
+/* Shows the month and year that you have choosen */
 .containerForMonthAndYear {
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.336);
@@ -12,12 +13,14 @@
     text-align: center;
 }
 
+/* arrows for selecting next/previous month and year */
 .previousMonthAndYear, .nextMonthAndYear {
     color: rgb(255, 255, 255);
     cursor: pointer;
     font-size: 2.5em;
 }
 
+/* sets the opacity for the days for previous/next days in months in calendar */
 .previousMonthAndYear-opacity, .nextMonthAndYear-opacity {
     opacity: 0.5;
 }
@@ -34,6 +37,7 @@
     cursor: pointer;
 }
 
+/* container for days of the week */
 .weekDays {
     background-color: black;
     padding: 0 .4em;
@@ -47,6 +51,7 @@
     cursor: pointer;
 }
 
+/* rules for the text inside weekdays */
 .weekDays div {
     font-size: 1.2em;
     letter-spacing: .1em;
@@ -54,6 +59,7 @@
     padding: 1em;
 }
 
+/* container around all dates in months */
 .allDaysContainer {
     background-color: rgba(3, 1, 1, 0.384);
     backdrop-filter: blur(5px);
@@ -63,6 +69,7 @@
     color: rgb(255, 255, 255);
 }
 
+/* rules for each date inside the allDaysContainer */
 .allDaysContainer .eachDay {
     font-size: 1.4rem;
     margin: 0.3rem;
@@ -73,23 +80,40 @@
     cursor: pointer;
     position: relative;
 }
-  
-.active-day {
-    outline: 1px solid whitesmoke;
+
+.allDaysContainer .eachDay p {
+    margin: 0;
 }
 
+/* hover effect when you put the mouse over a date */
 .allDaysContainer .eachDay:hover:not(.today) {
     background-color: #8f8f8fb7;
 }
 
+.eachDay {
+    flex-direction: column;
+}
+
+/* defines the rules for clicked day */
+.active-day {
+    outline: 1px solid whitesmoke;
+}
+
+/* rules for highlighting todays date */
 .today {
     background-color: #8f8f8fb7;
 }
 
+/* color on the holiday names */
 .holiday {
     color: red;
 }
 
+.holiday-name {
+    font-size: 16px;
+}
+
+/* styling for the number of todos each day */
 .todoCount {
     color: pink;
     font-size: 14px;
@@ -98,17 +122,8 @@
     right: 1rem;
 }
 
-.holiday-name {
-    font-size: 16px;
-}
 
-.eachDay {
-    flex-direction: column;
-}
 
-.allDaysContainer .eachDay p {
-    margin: 0;
-}
 
 
 

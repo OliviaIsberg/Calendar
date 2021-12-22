@@ -1,0 +1,114 @@
+.containerForMonthAndYear {
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.336);
+    backdrop-filter: blur(5px);
+    border-bottom: dotted;
+    border-color: rgba(36, 36, 36, 0.733);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+    text-align: center;
+}
+
+.previousMonthAndYear, .nextMonthAndYear {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 2.5em;
+}
+
+.previousMonthAndYear-opacity, .nextMonthAndYear-opacity {
+    opacity: 0.5;
+}
+
+#displayMonth {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+#displayYear {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.weekDays {
+    background-color: black;
+    padding: 0 .4em;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    border-bottom: #6b6b6b27;
+    border-bottom-style: dotted;
+    cursor: pointer;
+}
+
+.weekDays div {
+    font-size: 1.2em;
+    letter-spacing: .1em;
+    text-align: center;
+    padding: 1em;
+}
+
+.allDaysContainer {
+    background-color: rgba(3, 1, 1, 0.384);
+    backdrop-filter: blur(5px);
+    padding: .2em;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    color: rgb(255, 255, 255);
+}
+
+.allDaysContainer .eachDay {
+    font-size: 1.4rem;
+    margin: 0.3rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+  
+.active-day {
+    outline: 1px solid whitesmoke;
+}
+
+.allDaysContainer .eachDay:hover:not(.today) {
+    background-color: #8f8f8fb7;
+}
+
+.today {
+    background-color: #8f8f8fb7;
+}
+
+.holiday {
+    color: red;
+}
+
+.todoCount {
+    color: pink;
+    font-size: 14px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.holiday-name {
+    font-size: 16px;
+}
+
+.eachDay {
+    flex-direction: column;
+}
+
+.allDaysContainer .eachDay p {
+    margin: 0;
+}
+
+
+

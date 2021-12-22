@@ -1,0 +1,86 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding-top: 9rem;
+    align-items: center;
+    text-align: center;
+    background-color:rgba(3, 1, 1, 0.384);
+    backdrop-filter: blur(5px);
+    color: rgb(255, 255, 255);
+}
+
+.displayTodaysWeekday {
+    text-transform: uppercase;
+    font-size: 2.5em;
+}
+
+.displayTodaysDate, .displayCurrentTime {
+    font-size: 1.5em;
+    
+}
+
+.containerForTodo {
+    margin-top: 1em;
+}
+
+.formForTodo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formForTodo .smallPlusIcon {
+    font-size: 2em;
+    cursor: pointer;
+} 
+
+.formForTodo .submitbutton {
+    margin-left: 1rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: whitesmoke;
+}
+
+.todo-list {
+    max-height: 310px;
+    background-color: rgba(59, 58, 58, 0.274);
+    overflow-y: auto;
+}
+
+.fas.fa-edit {
+    background-color: rgb(116, 139, 72);
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    color: whitesmoke;
+    margin: auto;
+}
+
+.active.todo-list {
+    visibility: visible;
+}
+
+#addTodoInputText {
+    border:none;
+    background-color: rgba(255, 255, 255, 0.336);
+    color: black;
+    padding:10px;
+    margin:5px;
+    border-radius: 15px;
+}
+
+.deleteTodo {
+    background-color: rgb(165, 2, 2);
+    color:white;
+    text-align: center;
+    border-radius: 200px;
+    padding: 5px;
+    font-weight: bold;
+    margin:20px;
+    border: none;
+}
+
+#calendarPhone {
+    display: none;
+}

@@ -25,6 +25,7 @@
         <h1>Kalender</h1>
     </header>
 
+    <!-- container for todos and calendar -->
     <div class="container">
         <aside class="sidebar">
             <div class='displaysInfoAboutToday'>
@@ -33,31 +34,38 @@
                 <p class="displayCurrentTime">00</p>
             </div>
             <div class="containerForTodo" id="todo">
+                <!-- form for adding, deleting and changing todos -->
                 <form class="formForTodo">
                     <input type="text" id="addTodoInputText">
                     <input type="hidden" id="date">
                     <button id="datebutton" class="submitbutton">
                         <i class="far fa-plus-square smallPlusIcon"></i>
                     </button>
+                    <!-- button for showing the calander in smaller screens -->
                     <button id="calendarPhone">show calendar</button>
 
                 </form>
                 <div class="todo-list">
-
                     <ul id=todoULDOM></ul>
-
                 </div>
             </div>
         </aside>
+
+        <!-- container for calendar -->
         <main class="calendar" id="calendar">
             <div class="containerForMonthAndYear">
+
+                <!-- arrow for change  to previous month and year -->
                 <i class="fas fa-angle-left previousMonthAndYear"></i>
                 <div class="displayMonthAndYear">
                     <h2 id="displayMonth">januari</h2>
                     <p id="displayYear"></p>
                 </div>
+
+                <!-- arrow for change  to next month and year -->
                 <i class="fas fa-angle-right nextMonthAndYear"></i>
             </div>
+            <!-- displays all days in the week -->
             <div class="weekDays">
                 <div>
                     måndag
@@ -81,6 +89,7 @@
                     söndag
                 </div>
             </div>
+            <!-- container for all the dates in the months -->
             <div class="allDaysContainer">
 
             </div>

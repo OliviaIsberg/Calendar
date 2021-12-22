@@ -1,3 +1,4 @@
+/* container for aside element */
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -16,24 +17,20 @@
 
 .displayTodaysDate, .displayCurrentTime {
     font-size: 1.5em;
-    
 }
 
 .containerForTodo {
     margin-top: 1em;
 }
 
+/* input field for todo */
 .formForTodo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.formForTodo .smallPlusIcon {
-    font-size: 2em;
-    cursor: pointer;
-} 
-
+/* button for add a todo */
 .formForTodo .submitbutton {
     margin-left: 1rem;
     padding: 0;
@@ -42,12 +39,19 @@
     color: whitesmoke;
 }
 
+.formForTodo .smallPlusIcon {
+    font-size: 2em;
+    cursor: pointer;
+} 
+
+/* the list for added todos */
 .todo-list {
     max-height: 310px;
     background-color: rgba(59, 58, 58, 0.274);
     overflow-y: auto;
 }
 
+/* the button you press for edit a todo */
 .fas.fa-edit {
     background-color: rgb(116, 139, 72);
     border: none;
@@ -57,10 +61,7 @@
     margin: auto;
 }
 
-.active.todo-list {
-    visibility: visible;
-}
-
+/* styling for todo input field */
 #addTodoInputText {
     border:none;
     background-color: rgba(255, 255, 255, 0.336);
@@ -70,6 +71,7 @@
     border-radius: 15px;
 }
 
+/* button for deleting a todo */
 .deleteTodo {
     background-color: rgb(165, 2, 2);
     color:white;
@@ -81,6 +83,7 @@
     border: none;
 }
 
+/* button that shows calendar in mobile */
 #calendarPhone {
     display: none;
 }

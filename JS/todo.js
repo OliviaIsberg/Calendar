@@ -6,7 +6,7 @@ function addEventListeners() {
     form.addEventListener('submit', inputFieldToDoList);
     form.addEventListener('submit', addTodo);
     let calenderbutton = document.getElementById("calendarPhone")
-    calenderbutton.addEventListener('click', toggleCalander)
+    calenderbutton.addEventListener('click', toggleCalandar)
 
 
 }
@@ -215,7 +215,13 @@ function getNumberOfTodos(date) {
  */
 let todos = {};
 
-function toggleCalander() {
+/**
+ * 
+ * function to toggle visibility of the calendar in mobile
+ * 
+*/
+
+function toggleCalandar() {
 
     const calendar = document.getElementById('calendar');
     const buttonText = document.getElementById("calendarPhone");
@@ -230,6 +236,11 @@ function toggleCalander() {
 
 }
 
+/**
+ * 
+ * function to make the calander constantly visible when you switch from small screen to big screen after 
+ * pressing "hide calendar"
+ */
 
 function bigScreen() {
     const calendar = document.getElementById("calendar")

@@ -46,6 +46,8 @@ function addTodoToList(date) {
 
 
         const removeButton = document.createElement('button')
+
+        // icon for remove todo
         removeButton.className = "fas fa-trash-alt"
         removeButton.classList.add('deleteTodo')
         removeButton.addEventListener('click', deleteTodoFromList)
@@ -58,6 +60,8 @@ function addTodoToList(date) {
         changeNameOnToDo.addEventListener('click', editTodo);
 
         liTodo.appendChild(changeNameOnToDo);
+
+        // icon for change a todo
         changeNameOnToDo.className = "fas fa-edit";
 
         // lägg till li-elementet i UL'en

@@ -37,6 +37,7 @@
     border: none;
     background: none;
     color: whitesmoke;
+    cursor: pointer;
 }
 
 .formForTodo .smallPlusIcon {
@@ -59,6 +60,7 @@
     border-radius: 10px;
     color: whitesmoke;
     margin: auto;
+    cursor: pointer;
 }
 
 /* styling for todo input field */
@@ -81,6 +83,7 @@
     font-weight: bold;
     margin:20px;
     border: none;
+    cursor: pointer;
 }
 
 /* button that shows calendar in mobile */

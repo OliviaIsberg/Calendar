@@ -3,32 +3,10 @@
  */
 function addEventListeners() {
     let form = document.querySelector('form');
-    form.addEventListener('submit', inputFieldToDoList);
     form.addEventListener('submit', addTodo);
     let calenderbutton = document.getElementById("calendarPhone")
     calenderbutton.addEventListener('click', toggleCalander)
-
-
 }
-
-/**
- * Prevent form submit
- * @param e
- */
-function inputFieldToDoList(e) {
-    let textInput = document.getElementById('addTodoInputText');
-    e.preventDefault();
-}
-
-
-// function toggleForm() {
-//     const form = document.getElementsByClassName('formForTodo')[0];
-//     form.classList.toggle('hide');
-
-
-// }
-
-
 
 /**
  * Convert a Date object to a string 'yyyy-mm-dd'
@@ -126,16 +104,6 @@ function editTodo(editButtonEvent) {
         changeToDoInputField.remove();
     });
 }
-
-
-// function changeToDoWhenButtonPress() {
-//     const listItem = document.querySelector('.list-item');
-//     if (!listItem) {
-//         return;
-//     }
-//
-//     addTodoToList();
-// }
 
 /**
  * Save content to Localstorage

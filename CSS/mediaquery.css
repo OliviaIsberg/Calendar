@@ -185,11 +185,28 @@ body {
 
 .weekDays{
 
+
+        display: none;
+      }
+    
+    #calendar {
+        display:none;
+    }
+        .calendar{
+            position: absolute;
+            justify-self: center;
+            z-index: 1;
+            
+            contain: content;
+            margin-top: -1.2rem;
+        }
+
     display: none;
 }
 
 .weekDays div {
     font-size: 0.6rem;
+
 
 }
 

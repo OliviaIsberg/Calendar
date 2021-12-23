@@ -41,13 +41,13 @@ Clock.prototype.getWeekDay = function () {
     const weekDay = this.currentDate.getDay();
 
     switch (weekDay) {
-        case 0: return 'Söndag';
-        case 1: return 'Måndag';
-        case 2: return 'Tisdag';
-        case 3: return 'Onsdag';
-        case 4: return 'Torsdag';
-        case 5: return 'Fredag';
-        case 6: return 'Lördag';
+        case 0: return 'Måndag';
+        case 1: return 'Tisdag';
+        case 2: return 'Onsdag';
+        case 3: return 'Torsdag';
+        case 4: return 'Fredag';
+        case 5: return 'Lördag';
+        case 6: return 'Söndag';
     }
 }
 

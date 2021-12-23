@@ -210,7 +210,7 @@
         align-items: center;
         cursor: pointer;
         position: relative;
-        background-color: none;
+        background-color: transparent;
     }
     
     div.eachDay.today.active-day{
@@ -248,7 +248,10 @@
     }
       
     .todo-list{
-        min-height: 250px;
+        margin: 1.5rem auto 0 auto;
+        width: 100%;
+        overflow-y: visible;
+        max-height: none;
     }
     
     
@@ -282,11 +285,7 @@
     .containerForMonthAndYear{
         font-size: 6px;
     }
-    
-    div.allDaysContainer{
-        background-color: none;
-    }
-    
+        
     .allDaysContainer .eachDay {
         font-size: 2px;
         margin: 0.2rem;
@@ -316,7 +315,10 @@
             
     }
     
-    
+    #todoULDOM {
+        margin-bottom: 0;
+    }
+
     .todo-list{
         min-height: 250px;
     }

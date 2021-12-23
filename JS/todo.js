@@ -82,6 +82,10 @@ TodoManager.prototype.addTodo = function () {
     this.dispatchEvent(event);
 }
 
+/**
+ * 
+ * funktion som gör så att man får fram kalendern på mindre skärmar
+ */
 TodoManager.toggleCalendar = function () {
     const calendar = document.getElementById('calendar');
     const buttonText = document.getElementById("calendarPhone");
@@ -232,7 +236,10 @@ TodoManager.prototype.getNumberOfTodos = function (date) {
     return this.todos.hasOwnProperty(key) ? this.todos[key].length : 0;
 }
 
-
+/**
+ * 
+ * funktion som gör så att kalendern visas automatiskt när man går från liten skärmtill stor skärm. 
+ */
 function bigScreen() {
     const calendar = document.getElementById("calendar")
     if (window.matchMedia("(min-width: 630px)")) {

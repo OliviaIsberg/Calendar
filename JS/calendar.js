@@ -25,11 +25,6 @@ class Calendar extends EventTarget {
          */
         this.today = new Date(this.date);
 
-        /**
-         * 
-         */
-        this.isDateSelected = true;
-
         const dayContainer = document.querySelector('.allDaysContainer');
 
         // Create a reference to "this" calendar object for use in event listener
@@ -174,9 +169,7 @@ Calendar.prototype.highlightActiveDate = function () {
         this.dateElements[i].classList.remove('active-day');
     }
 
-    if (this.isDateSelected) {
-        this.dateElements[firstDayOfMonth + this.date.getDate() - 1].classList.add('active-day');
-    }
+    this.dateElements[firstDayOfMonth + this.date.getDate() - 1].classList.add('active-day');
 }
 
 
@@ -243,13 +236,10 @@ Calendar.prototype.setDate = function (date) {
     this.date = date;
 
     if (date.getTime() === new Date(oldDate.getFullYear(), oldDate.getMonth(), oldDate.getDate()).getTime()) {
-        this.isDateSelected = !this.isDateSelected;
-    } else {
-        this.isDateSelected = true;
-        document.getElementById('date').value = date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
+        this.date = this.today;
     }
 
-    if (date.getFullYear() === oldDate.getFullYear() && date.getMonth() === oldDate.getMonth()) {
+    if (this.date.getFullYear() === oldDate.getFullYear() && this.date.getMonth() === oldDate.getMonth()) {
         this.highlightActiveDate();
     } else {
         this.render();

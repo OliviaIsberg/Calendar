@@ -45,11 +45,44 @@
     cursor: pointer;
 } 
 
+#todoULDOM {
+    padding: 0;
+    width: 100%;
+}
+
 /* the list for added todos */
 .todo-list {
+    margin-top: 1.5rem;
     max-height: 310px;
     background-color: rgba(59, 58, 58, 0.274);
     overflow-y: auto;
+    width: 250px;
+    position: relative;
+
+}
+
+.todo-list li {
+    list-style: none;
+    padding: 0 0.5rem 0 1.5rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.todo-list li span {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    width: 100px;
+    word-break: break-all;
+}
+
+.todo-list li button {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 0;
+    margin: 0.5rem;
 }
 
 /* the button you press for edit a todo */
@@ -57,9 +90,21 @@
     background-color: rgb(116, 139, 72);
     border: none;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 100%;
     color: whitesmoke;
     margin: auto;
+    cursor: pointer;
+}
+
+/* button for deleting a todo */
+.deleteTodo {
+    background-color: rgb(165, 2, 2);
+    color:white;
+    text-align: center;
+    border-radius: 100%;
+    padding: 5px;
+    font-weight: bold;
+    border: none;
     cursor: pointer;
 }
 
@@ -69,21 +114,7 @@
     background-color: rgba(255, 255, 255, 0.336);
     color: black;
     padding:10px;
-    margin:5px;
     border-radius: 15px;
-}
-
-/* button for deleting a todo */
-.deleteTodo {
-    background-color: rgb(165, 2, 2);
-    color:white;
-    text-align: center;
-    border-radius: 200px;
-    padding: 5px;
-    font-weight: bold;
-    margin:20px;
-    border: none;
-    cursor: pointer;
 }
 
 /* button that shows calendar in mobile */

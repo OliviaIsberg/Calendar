@@ -150,6 +150,7 @@
 /* calander becomes dropdown*/
 
 @media screen and (max-width: 630px) {
+
 body {
     overflow: visible;
 }
@@ -157,6 +158,29 @@ body {
 .header{
     font-size: 0.6rem;
 }
+=======
+    .weekDays div {
+        font-size: 0.6rem;
+    }
+
+    .displayTodaysWeekday{
+        font-size: 2rem;
+    }
+
+    .header{
+        font-size: 0.6rem;
+    }
+
+    .containerForMonthAndYear{
+        font-size: 0.5rem;
+    }
+
+    .eachDay{
+        font-size: 0.8rem;
+        padding: 0.5rem;
+        
+    }
+
 
 
 .weekDays{
@@ -217,14 +241,54 @@ div.eachDay.today.active-day{
     background-color: rgba(0, 0, 0, 0.459);
 }
     
+
 .holiday-name {
     display: none;
 }
+
+        .allDaysContainer .eachDay {
+            font-size: 10px;
+            margin: 0.5rem;
+            height: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: none;
+        }
+    
+        .holiday-name {
+            display: none;
+        }
+    
+        p.date{
+            font-size: 15px;
+        }
+
     
 p.date{
     font-size: 15px;
 }
     
+
+
+        p.todoCount{
+            font-size: 12px;
+        }
+
+    .todo-list{
+        min-height: 250px;
+    }
+
+    #calendarPhone{
+        display: block;
+        color:white;
+        background-color: darkcyan;
+        border: none;
+        margin: 5px;
+        cursor: pointer;
+       
+
 
 
 p.todoCount{
@@ -252,7 +316,7 @@ p.todoCount{
 }
 
 
-/*****/
+
  
 
 } 

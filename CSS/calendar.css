@@ -29,12 +29,10 @@
     font-size: 2.5em;
     text-transform: uppercase;
     margin-bottom: 1em;
-    cursor: pointer;
 }
 
 #displayYear {
     font-size: 1.5em;
-    cursor: pointer;
 }
 
 /* container for days of the week */
@@ -48,7 +46,6 @@
     gap: 1px;
     border-bottom: #6b6b6b27;
     border-bottom-style: dotted;
-    cursor: pointer;
 }
 
 /* rules for the text inside weekdays */

@@ -86,12 +86,13 @@ TodoManager.toggleCalendar = function () {
     const calendar = document.getElementById('calendar');
     const buttonText = document.getElementById("calendarPhone");
 
-    if (calendar.style.display != "none") {
-        calendar.style.display = "none";
-        buttonText.textContent = "show calendar"
-    } else {
+    if (calendar.style.display != "block") {
         calendar.style.display = "block";
-        buttonText.textContent = "hide calendar"
+        buttonText.textContent = "Dölj kalender"
+    } else {
+        calendar.style.display = "none";
+        buttonText.textContent = "Visa kalender"
+
     }
 }
 

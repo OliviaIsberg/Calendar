@@ -1,35 +1,44 @@
 /**
-* Keeps the time updated
-*/
-function startClock() {
-    renderClock();
-    setInterval(renderClock, 1000);
+ * Constructs a new Clock object
+ * 
+ * @class Clock
+ * @classdesc Self-contained Clock object
+ * 
+ * @property {Date} currentDate - date representing the selected date
+ * @this Clock
+ */
+function Clock() {
+    this.currentDate = new Date();
+
+    this.render();
+    setInterval(() => { this.render(); }, 1000);
 }
 
 /**
 * Updates the page with current time and weekday
 */
-function renderClock() {
-    const currentDate = new Date();
-
+Clock.prototype.render = function () {
     const weekdayElement = document.querySelector('.displayTodaysWeekday');
-    weekdayElement.innerHTML = getWeekDay(currentDate);
+    weekdayElement.innerHTML = this.getWeekDay();
 
-    let today = new Date();
-    let todaysDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    document.querySelector('.displayTodaysDate').innerHTML = `${todaysDate}`;
+    const todaysDate = this.currentDate.getFullYear() + '-' + (this.currentDate.getMonth() + 1).toString().padStart(2, '0') + '-' + this.currentDate.getDate().toString().padStart(2, '0');
+    document.querySelector('.displayTodaysDate').innerText = `${todaysDate}`;
 
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
     const timeElement = document.querySelector('.displayCurrentTime');
-    timeElement.innerHTML = getCurrentTime(currentDate);
+
+    timeElement.innerHTML = hours + ":" + minutes + ":" + seconds;
 }
 
 /**
-* Takes a date and returns current weekday
-* @param {Date} currentDate
+* Returns current weekday
 * @returns {String}
 */
-function getWeekDay(currentDate) {
-    const weekDay = currentDate.getDay();
+Clock.prototype.getWeekDay = function () {
+    const weekDay = this.currentDate.getDay();
 
     switch (weekDay) {
         case 0: return 'Söndag';
@@ -43,22 +52,10 @@ function getWeekDay(currentDate) {
 }
 
 /**
-* Constructs the time string from a date, with seconds
+* Sets the current date
 * @param {Date} currentDate
-* @returns {String}
 */
-function getCurrentTime(currentDate) {
-    let hours = currentDate.getHours();
-    let minutes = currentDate.getMinutes();
-    let seconds = currentDate.getSeconds();
-    if (hours < 10) {
-        hours = "0" + hours;
-    }
-    if (minutes < 10) {
-        minutes = "0" + minutes;
-    }
-    if (seconds < 10) {
-        seconds = "0" + seconds;
-    }
-    return hours + ":" + minutes + ":" + seconds;
+Clock.prototype.setDate = function (currentDate) {
+    this.currentDate = currentDate;
+    this.render();
 }

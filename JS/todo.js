@@ -1,11 +1,98 @@
 /**
+ * TodoManager handles all actions related to the todo-lists
+ * 
+ * @class TodoManager
+ * @classdesc Self-contained TodoManager object
+ * 
+ * @property {Object} todos - object containing all todo items
+ * @property {Date} date - date representing the active date
+ * @this TodoManager
+ */
+class TodoManager extends EventTarget {
+    constructor() {
+        super();
+
+
+        this.todos = {};
+        this.date = new Date();
+
+        this.loadFromLS();
+        this.addEventListeners();
+    }
+}
+
+/**
+ * Get content from Localstorage
+ */
+TodoManager.prototype.loadFromLS = function () {
+    const todoStr = localStorage.getItem('todo');
+    if (todoStr) {
+        this.todos = JSON.parse(todoStr);
+    }
+}
+
+/**
+ * Save content to Localstorage
+ */
+TodoManager.prototype.saveToLs = function () {
+    localStorage.setItem('todo', JSON.stringify(this.todos));
+}
+
+/**
  * AddEventListeners for input field for todo
  */
-function addEventListeners() {
+TodoManager.prototype.addEventListeners = function () {
     let form = document.querySelector('form');
-    form.addEventListener('submit', addTodo);
+    form.addEventListener('submit', (e) => { this.addTodo(); e.preventDefault(); });
     let calendarbutton = document.getElementById("calendarPhone")
-    calendarbutton.addEventListener('click', toggleCalendar);
+    calendarbutton.addEventListener('click', TodoManager.toggleCalendar);
+}
+
+/**
+ * Sets the active date
+ */
+TodoManager.prototype.setDate = function (date) {
+    this.date = date;
+}
+
+/**
+ * Adds todo with an key to identify the object
+ */
+TodoManager.prototype.addTodo = function () {
+    let todo = document.getElementById('addTodoInputText');
+    if (todo.value.trim() === '') {
+        return;
+    }
+
+    let dateStr = TodoManager.dateToString(this.date);
+
+    if (!this.todos.hasOwnProperty(dateStr)) {
+        this.todos[dateStr] = [];
+    }
+
+    this.todos[dateStr].push({ title: todo.value.trim(), key: TodoManager.generateKey() });
+
+    this.saveToLs();
+
+    this.addTodoToList(this.date);
+
+    todo.value = '';
+
+    const event = new CustomEvent('todoadded');
+    this.dispatchEvent(event);
+}
+
+TodoManager.toggleCalendar = function () {
+    const calendar = document.getElementById('calendar');
+    const buttonText = document.getElementById("calendarPhone");
+
+    if (calendar.style.display != "none") {
+        calendar.style.display = "none";
+        buttonText.textContent = "show calendar"
+    } else {
+        calendar.style.display = "block";
+        buttonText.textContent = "hide calendar"
+    }
 }
 
 /**
@@ -13,7 +100,7 @@ function addEventListeners() {
  * @param {Date} date
  * @returns {string}
  */
-function dateToString(date) {
+TodoManager.dateToString = function (date) {
     return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
 }
 
@@ -21,19 +108,19 @@ function dateToString(date) {
  * Creates li, buttons, span element
  * @param date
  */
-function addTodoToList(date) {
-    const key = dateToString(date);
+TodoManager.prototype.addTodoToList = function (date) {
+    const key = TodoManager.dateToString(date);
 
     // Hämta UL från html,
     const ulTodo = document.getElementById('todoULDOM');
     ulTodo.innerHTML = "";
 
-    if (!todos.hasOwnProperty(key)) {
+    if (!this.todos.hasOwnProperty(key)) {
         return;
     }
 
     // loopa igenom arrayen med "todo" objekten
-    for (const todo of todos[key]) {
+    for (const todo of this.todos[key]) {
 
         //skapar ett list-element ("Li") för varje  objekt "todo" ur arrayen todos och skriver ut "title" ur objektet i DOMen. samt
         // lägger till en knapp som har funktion on click.
@@ -50,14 +137,14 @@ function addTodoToList(date) {
         // icon for remove todo
         removeButton.className = "fas fa-trash-alt"
         removeButton.classList.add('deleteTodo')
-        removeButton.addEventListener('click', deleteTodoFromList)
+        removeButton.addEventListener('click', (e) => { this.deleteTodoFromList(e); })
 
         liTodo.append(title, removeButton);
         liTodo.className = "list-item";
 
         let changeNameOnToDo = document.createElement('button');
         changeNameOnToDo.className = 'changeToDo';
-        changeNameOnToDo.addEventListener('click', editTodo);
+        changeNameOnToDo.addEventListener('click', (e) => { this.editTodo(e); });
 
         liTodo.appendChild(changeNameOnToDo);
 
@@ -73,7 +160,7 @@ function addTodoToList(date) {
  * Edit the title of a todo item
  * @param {Event} editButtonEvent
  */
-function editTodo(editButtonEvent) {
+TodoManager.prototype.editTodo = function (editButtonEvent) {
     // Find the parent li element to the edit button
     const todoLi = editButtonEvent.target.parentElement;
     // Find the title element of the li item
@@ -97,62 +184,23 @@ function editTodo(editButtonEvent) {
         titleSpan.style.display = 'inline';
 
         // Find and update the value of the todo in the todos object
-        const dateString = document.getElementById('date').value;
-        const index = todos[dateString].findIndex(item => item.key === todoLi.getAttribute('key'));
-        todos[dateString][index].title = changeToDoInputField.value;
+        const dateString = TodoManager.dateToString(this.date);
+        const index = this.todos[dateString].findIndex(item => item.key === todoLi.getAttribute('key'));
+        this.todos[dateString][index].title = changeToDoInputField.value;
 
         // Update localStorage
-        saveToLs(todos);
+        this.saveToLs();
+
         // Remove the input field
         changeToDoInputField.remove();
     });
 }
 
 /**
- * Save content to Localstorage
- */
-function saveToLs(keyvalue) {
-    localStorage.setItem('todo', JSON.stringify(keyvalue));
-}
-
-/**
- * Get content from Localstorage
- */
-function loadFromLS() {
-    const todoStr = localStorage.getItem('todo');
-    if (todoStr) {
-        todos = JSON.parse(todoStr);
-    }
-}
-
-/**
- * Adds todo with an key to identify the object
- */
-function addTodo() {
-    let todo = document.getElementById('addTodoInputText');
-    if (todo.value.trim() === '') {
-        return;
-    }
-
-    let dateStr = document.getElementById('date').value;
-    let date = new Date(dateStr);
-    if (!todos.hasOwnProperty(dateStr)) {
-        todos[dateStr] = [];
-    }
-
-    todos[dateStr].push({ title: todo.value.trim(), key: generateKey() });
-
-    saveToLs(todos);
-
-    addTodoToList(date);
-    todo.value = '';
-}
-
-/**
  * Generate a random key
  * @returns {string}
  */
-function generateKey() {
+TodoManager.generateKey = function () {
     return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString();
 }
 
@@ -160,13 +208,16 @@ function generateKey() {
  * Deletes the todo from the todo list and localstorage
  * @param event
  */
-function deleteTodoFromList(event) {
+TodoManager.prototype.deleteTodoFromList = function (event) {
     let todo = event.target.parentNode;
-    const dateString = document.getElementById('date').value;
-    const index = todos[dateString].findIndex(item => item.key === todo.getAttribute('key'));
-    todos[dateString].splice(index, 1);
-    saveToLs(todos);
+    const dateString = TodoManager.dateToString(this.date);
+    const index = this.todos[dateString].findIndex(item => item.key === todo.getAttribute('key'));
+    this.todos[dateString].splice(index, 1);
+    this.saveToLs();
     todo.remove();
+
+    const ev = new CustomEvent('tododeleted');
+    this.dispatchEvent(ev);
 }
 
 /**
@@ -174,31 +225,10 @@ function deleteTodoFromList(event) {
  * @param date
  * @returns {*|number}
  */
-function getNumberOfTodos(date) {
-    const key = dateToString(date);
+TodoManager.prototype.getNumberOfTodos = function (date) {
+    const key = TodoManager.dateToString(date);
 
-    return todos.hasOwnProperty(key) ? todos[key].length : 0;
-}
-
-/**
- * State
- * @type {{Object}}
- */
-let todos = {};
-
-function toggleCalendar() {
-
-    const calendar = document.getElementById('calendar');
-    const buttonText = document.getElementById("calendarPhone");
-
-    if (calendar.style.display != "none") {
-        calendar.style.display = "none";
-        buttonText.textContent = "show calendar"
-    } else {
-        calendar.style.display = "block";
-        buttonText.textContent = "hide calendar"
-    }
-
+    return this.todos.hasOwnProperty(key) ? this.todos[key].length : 0;
 }
 
 

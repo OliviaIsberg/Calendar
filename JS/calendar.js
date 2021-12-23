@@ -9,72 +9,73 @@
  * @property {HTMLDivElement[]} dateElements - array of div elements representing the dates of the month
  * @this Calendar
  */
+class Calendar extends EventTarget {
+    constructor() {
+        super();
 
-function Calendar() {
-    /** 
-     * @type {Date}
-     * date representing the selected date
-     */
-    this.date = new Date();
+        /** 
+         * @type {Date}
+         * date representing the selected date
+         */
+        this.date = new Date();
 
-    /**
-     * @type {Date}
-     * date representing today
-     */
-    this.today = new Date(this.date);
+        /**
+         * @type {Date}
+         * date representing today
+         */
+        this.today = new Date(this.date);
 
-    /**
-     * 
-     */
-    this.isDateSelected = true;
+        /**
+         * 
+         */
+        this.isDateSelected = true;
 
-    const dayContainer = document.querySelector('.allDaysContainer');
+        const dayContainer = document.querySelector('.allDaysContainer');
 
-    // Create a reference to "this" calendar object for use in event listener
-    const calendar = this;
+        // Create a reference to "this" calendar object for use in event listener
+        const calendar = this;
 
-    /** 
-     * @type {HTMLDivElement[]}
-     * array of div elements representing the dates of the month
-     */
-    this.dateElements = new Array(42);
-    for (let i = 0; i < this.dateElements.length; i++) {
-        // Create div-element for each day of the month
-        this.dateElements[i] = document.createElement('div');
-        this.dateElements[i].className = 'eachDay';
+        /** 
+         * @type {HTMLDivElement[]}
+         * array of div elements representing the dates of the month
+         */
+        this.dateElements = new Array(42);
+        for (let i = 0; i < this.dateElements.length; i++) {
+            // Create div-element for each day of the month
+            this.dateElements[i] = document.createElement('div');
+            this.dateElements[i].className = 'eachDay';
 
-        // Sets the eventlistener for clicking on individual dates
-        this.dateElements[i].addEventListener('click', function () { calendar.setDate(this.date) });
+            // Sets the eventlistener for clicking on individual dates
+            this.dateElements[i].addEventListener('click', function () { calendar.setDate(this.date) });
 
-        // Create p-element for date number
-        let pDate = document.createElement('p');
-        pDate.className = 'date';
-        this.dateElements[i].appendChild(pDate);
+            // Create p-element for date number
+            let pDate = document.createElement('p');
+            pDate.className = 'date';
+            this.dateElements[i].appendChild(pDate);
 
-        // Create p-element for holiday name
-        let pHoliday = document.createElement('p');
-        pHoliday.className = 'holiday-name';
-        this.dateElements[i].appendChild(pHoliday);
+            // Create p-element for holiday name
+            let pHoliday = document.createElement('p');
+            pHoliday.className = 'holiday-name';
+            this.dateElements[i].appendChild(pHoliday);
 
-        let pTodoCount = document.createElement('p');
-        pTodoCount.className = 'todoCount';
-        this.dateElements[i].appendChild(pTodoCount);
+            let pTodoCount = document.createElement('p');
+            pTodoCount.className = 'todoCount';
+            this.dateElements[i].appendChild(pTodoCount);
 
-        // Append div to the container
-        dayContainer.appendChild(this.dateElements[i]);
+            // Append div to the container
+            dayContainer.appendChild(this.dateElements[i]);
+        }
+
+        document.querySelector('.previousMonthAndYear').addEventListener('click', () => {
+            this.date.setMonth(this.date.getMonth() - 1);
+            this.render();
+        });
+
+        document.querySelector('.nextMonthAndYear').addEventListener('click', () => {
+            this.date.setMonth(this.date.getMonth() + 1);
+            this.render();
+        });
     }
-
-    document.querySelector('.previousMonthAndYear').addEventListener('click', () => {
-        this.date.setMonth(this.date.getMonth() - 1);
-        this.render();
-    });
-
-    document.querySelector('.nextMonthAndYear').addEventListener('click', () => {
-        this.date.setMonth(this.date.getMonth() + 1);
-        this.render();
-    });
-
-    this.render(true);
 }
 
 Calendar.Months = ['Januari', 'Februari', 'Mars', 'April', 'Maj', 'Juni', 'Juli', 'Augusti', 'September', 'Oktober', 'November', 'December'];
@@ -105,9 +106,8 @@ Calendar.prototype.render = function () {
         this.dateElements[firstDayOfMonth + i].getElementsByTagName('p')[1].innerText = '';
         this.dateElements[firstDayOfMonth + i].date = new Date(this.date.getFullYear(), this.date.getMonth(), i + 1);
 
-        let numberOfTodos = getNumberOfTodos(this.dateElements[firstDayOfMonth + i].date);
-        this.dateElements[firstDayOfMonth + i].getElementsByClassName('todoCount')[0].innerText = numberOfTodos;
-
+        const event = new CustomEvent('daterendered', { detail: { date: this.dateElements[firstDayOfMonth + i].date } });
+        this.dispatchEvent(event);
     }
 
     // Sets text and classes for the days belonging to the next month
@@ -226,12 +226,11 @@ Calendar.prototype.renderHolidays = function (data) {
 /**
  * Update the todo count for the selected date
  */
-Calendar.prototype.updateTodoCount = function (data) {
+Calendar.prototype.setTodoCount = function (date, numberOfTodos) {
     const month = new Date(this.date.getFullYear(), this.date.getMonth()); // Construct New date instance representing the first day of the current month
     const firstDayOfMonth = month.getDay() === 0 ? 6 : month.getDay() - 1; // Date.getDay but with 0-6 representing monday-sunday
 
-    let numberOfTodos = getNumberOfTodos(this.dateElements[firstDayOfMonth + this.date.getDate() - 1].date);
-    this.dateElements[firstDayOfMonth + this.date.getDate() - 1].getElementsByClassName('todoCount')[0].innerText = numberOfTodos;
+    this.dateElements[firstDayOfMonth + date.getDate() - 1].getElementsByClassName('todoCount')[0].innerText = numberOfTodos;
 }
 
 
@@ -256,6 +255,6 @@ Calendar.prototype.setDate = function (date) {
         this.render();
     }
 
-
-    addTodoToList(date);
+    const event = new CustomEvent('datechanged', { date: date });
+    this.dispatchEvent(event);
 }

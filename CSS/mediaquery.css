@@ -285,7 +285,15 @@
     .containerForMonthAndYear{
         font-size: 6px;
     }
+
         
+
+    
+    div.allDaysContainer{
+        background-color: transparent;
+    }
+    
+
     .allDaysContainer .eachDay {
         font-size: 2px;
         margin: 0.2rem;

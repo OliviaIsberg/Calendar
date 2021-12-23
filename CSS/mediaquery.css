@@ -1,135 +1,164 @@
 
 @media screen and (max-width: 1200px) {
-    .weekDays div {
-        font-size: 0.8rem;
-    }
 
-    .displayTodaysWeekdays{
-        font-size: 1.5rem;
-    }
+.container {
+    min-width: 100%;
+}
 
-    .header{
-        font-size: 0.8rem;
-    }
+.header{
+    font-size: 0.8rem;
+}
 
-    .containerForMonthAndYear{
-        font-size: 0.7rem;
-    }
+.weekDays div {
+    font-size: 0.8rem;
+}
 
-    .container {
-        min-width: 100%;
-    }
-  }
+.displayTodaysWeekdays{
+    font-size: 1.5rem;
+}
+
+.containerForMonthAndYear{
+    font-size: 0.7rem;
+}
+
+   
+}
+
+
+/*********/
 
   
-  @media screen and (max-width: 950px) {
+@media screen and (max-width: 950px) {
 
-    .header h1{
+.header h1{
 
-        font-size: 40px;
-    }
-    .containerForMonthAndYear{
-        font-size: 0.5rem;
-    }
+    font-size: 40px;
+}
 
-    .displayTodaysWeekday{
-        font-size: 1.5rem;
-    }
+.containerForMonthAndYear{
+    font-size: 0.5rem;
 
-    .header{
-        font-size: 0.6rem;
-    }
+}
 
-    .containerForMonthAndYear{
-        font-size: 0.5rem;
-    }
+.displayTodaysWeekday{
+    font-size: 1.5rem;
+}
 
-    .eachDay{
-        font-size: 0.8rem;
-        margin: 0;
-    }
+.header{
+    font-size: 0.6rem;
+}
 
-    .todoCount {
-        font-size: 12px;
-        top: 0;
-        right: 0;
-    }
+.containerForMonthAndYear{
+    font-size: 0.5rem;
+}
 
-    .date {
-        font-size: 16px;
-    }
-
-    .holiday-name {
-        font-size: 12px;
-    }
-
-    .sidebar{
-        max-width: 80%;
-    }
-
-    #addTodoInputText{
-        width:90px
-    }
-  }
-
-  @media screen and (max-width: 800px) {
-
-    .header h1 {
-        font-size: 30px;
+.eachDay{
+    font-size: 0.8rem;
+    margin: 0;
+}
 
 
-    }
-    .weekDays div {
-        font-size: 0.6rem;
-    }
+.todoCount {
+    font-size: 12px;
+    top: 0;
+    right: 0;
+}
 
-    .displayTodaysWeekday{
-        font-size: 1rem;
-    }
+.date {
+    font-size: 16px;
+}
 
-    .header{
-        font-size: 0.6rem;
-    }
+.holiday-name {
+    font-size: 12px;
+}
 
-    .containerForMonthAndYear{
-        font-size: 0.5rem;
-    }
+.sidebar{
+    max-width: 80%;
+}
 
-    .eachDay{
-        font-size: 0.8rem;
-        margin: 0;
-    }
+#addTodoInputText{
+    width:90px
+}
 
-    .todoCount {
-        font-size: 12px;
-        top: 0;
-        right: 0;
-    }
+}
 
-    .date {
-        font-size: 16px;
-    }
+/***********/
 
-    .holiday-name {
-        font-size: 12px;
-    }
+@media screen and (max-width: 800px) {
 
-    .sidebar{
-        max-width: 80%;
-    }
+.header{
+    font-size: 0.6rem;
+}
 
-    #addTodoInputText{
-        width:90px
-    }
+.header h1 {
+    font-size: 30px;
+
+}
+
+.weekDays div {
+    font-size: 0.6rem;
+}
+
+.displayTodaysWeekday{
+    font-size: 1rem;
+}
+
+.containerForMonthAndYear{
+    font-size: 0.5rem;
+}
+
+.eachDay{
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.date {
+    font-size: 16px;
+}
+
+.holiday-name {
+    font-size: 12px;
+
+}
+
 .displayTodaysWeekday{
     font-size: 1em;
 }
-  }
+
+.sidebar{
+    max-width: 80%;
+}
+
+.todoCount {
+    font-size: 12px;
+    top: 0;
+    right: 0;
+}
+
+#addTodoInputText{
+    width:90px
+}
+
+
+}
+
+
+
+/********/
 
 
 /* calander becomes dropdown*/
 
 @media screen and (max-width: 630px) {
+
+body {
+    overflow: visible;
+}
+
+.header{
+    font-size: 0.6rem;
+}
+=======
     .weekDays div {
         font-size: 0.6rem;
     }
@@ -152,42 +181,71 @@
         
     }
 
-    .sidebar{
-        min-width: 100%;
-    }
 
-    #addTodoInputText{
-        width: 75%;
-    }
 
-    .weekDays{
+.weekDays{
 
-        display: none;
-      }
-      #calendar{
+    display: none;
+}
 
-        display:none;
-    }
-        .calendar{
-            position: absolute;
-            justify-self: center;
-            z-index: 1;
-            
-            contain: content;
-            margin-top: -1.2rem;
-        }
+.weekDays div {
+    font-size: 0.6rem;
 
-        #calendar {
-            background-color: rgb(18, 64, 70);
+}
 
-        }
-   
-        .todo-list{
-            min-height: 250px;
-        }
-    
+.displayTodaysWeekday{
+    font-size: 2rem;
+
+}
+
+
+.containerForMonthAndYear{
+    font-size: 0.5rem;
+}
+
+.eachDay{
+    font-size: 0.8rem;
+    padding: 0.5rem;
         
+}
+
+
+#calendar{
+    display:none;
+    background-color: rgb(18, 64, 70);
+
+}
+
+.calendar{
+    position: absolute;
+    justify-self: center;
+    z-index: 1;
+    contain: content;
+    margin-top: -1.2rem;
+}
+
+
+.allDaysContainer .eachDay {
+    font-size: 10px;
+    margin: 0.5rem;
+    height: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    background-color: none;
+}
+
+div.eachDay.today.active-day{
+    background-color: rgba(0, 0, 0, 0.459);
+}
     
+
+.holiday-name {
+    display: none;
+}
+
         .allDaysContainer .eachDay {
             font-size: 10px;
             margin: 0.5rem;
@@ -206,11 +264,14 @@
         p.date{
             font-size: 15px;
         }
+
     
-        .containerForMonthAndYear{
-         font-size: 12px;
-        }
+p.date{
+    font-size: 15px;
+}
     
+
+
         p.todoCount{
             font-size: 12px;
         }
@@ -228,81 +289,104 @@
         cursor: pointer;
        
 
-  } 
 
-  div.eachDay.today.active-day{
-    background-color: rgba(0, 0, 0, 0.459);
+
+p.todoCount{
+    font-size: 12px;
 }
+
+#calendarPhone{
+    display: block;
+    color:white;
+    background-color: darkcyan;
+    border: none;
+    margin: 5px;
+} 
+
+.sidebar{
+    min-width: 100%;
+}
+
+#addTodoInputText{
+   width: 75%;
+}
+  
+.todo-list{
+    min-height: 250px;
+}
+
+
+
  
 
 } 
  
 @media screen and (max-width: 400px) {
-    body {
-        overflow: visible;
-    }
-  .weekDays{
+body {
+    overflow: visible;
+}
 
+.weekDays{
     display: none;
-  }
 
-    .calendar{
-        position: absolute;
-        justify-self: center;
-        contain: content;
-        
-        
-    }
+}
 
-    #calendar{
+.calendar{
+    position: absolute;
+    justify-self: center;
+    contain: content;
+               
+}
+
+#calendar{
+     display:none;
        
+}
 
-        display:none;
-       
-    }
+.containerForMonthAndYear{
+    font-size: 6px;
+}
 
-    .todo-list{
-        min-height: 250px;
-    }
+div.allDaysContainer{
+    background-color: none;
+}
 
-    div.allDaysContainer{
-        background-color: none;
-    }
-
-    .allDaysContainer .eachDay {
-        font-size: 2px;
-        margin: 0.2rem;
-        height: 0.2rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        position: relative;
+.allDaysContainer .eachDay {
+    font-size: 2px;
+    margin: 0.2rem;
+    height: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
         
+}
+
+p.todoCount{
+    font-size:8px;
+}
+
+div.eachDay.today.active-day{
+    background-color: rgba(0, 0, 0, 0.452);
+}
+
+.holiday-name {
+    display: none;
+}
+
+p.date{
+    font-size: 10px;
         
-    }
+}
 
-    .holiday-name {
-        display: none;
-    }
 
-    p.date{
-        font-size: 10px;
-        
-    }
+.todo-list{
+    min-height: 250px;
+}
 
-    .containerForMonthAndYear{
-     font-size: 6px;
-    }
 
-    p.todoCount{
-        font-size:8px;
-    }
-
-    div.eachDay.today.active-day{
-        background-color: rgba(0, 0, 0, 0.452);
-    }
-  } 
+} 
 
 
 
